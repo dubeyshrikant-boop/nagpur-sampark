@@ -325,7 +325,7 @@ footer{color:var(--dim);font-size:13px;text-align:center}
   <div id="v-list" class="view" hidden>
    <section class="sec glass">
     <div class="lhead"><h2 id="ltitle">लाभार्थी यादी</h2>
-     <div class="row"><button class="btn wa sm" id="lq" type="button">या यादीला संपर्क सुरू करा</button><button class="btn ghost sm" id="lcsv" type="button">Excel (CSV)</button><button class="btn ghost sm" id="lvcf" type="button">फोन कॉन्टॅक्ट्स (CSV)</button><button class="btn ghost sm" id="lcopy" type="button">कॉपी</button></div></div>
+     <div class="row"><button class="btn wa sm" id="lq" type="button">या यादीला संपर्क सुरू करा</button><button class="btn ghost sm" id="lxlsx" type="button">Excel डाउनलोड</button><button class="btn ghost sm" id="lcsv" type="button">CSV</button><button class="btn ghost sm" id="lvcf" type="button">फोन कॉन्टॅक्ट्स (CSV)</button><button class="btn ghost sm" id="lcopy" type="button">कॉपी</button></div></div>
     <details class="fbox" id="fbox"><summary>फिल्टर — विधानसभा, प्रभाग, बूथ, वस्ती, योजना, वय…</summary>
     <div class="filters" id="filters">
      <label class="flab" for="f_q">शोध<input class="txt" id="f_q" placeholder="नाव / मोबाईल / पत्ता"></label>
@@ -588,7 +588,7 @@ function setupFilters(){
  ['f_ac','f_pr','f_bo','f_th','f_sc','f_n','f_mob','f_sx','f_age','f_st','f_sort'].forEach(id=>$(id).onchange=readFilters);
  $('freset').onclick=()=>{LISTF={ac:F.ac};syncFilterUI();renderList()};
  $('lq').onclick=()=>startQueue(CUR,$('ltitle').textContent);
- $('lcsv').onclick=()=>exportCSV(false);$('lvcf').onclick=()=>exportCSV(true);$('lcopy').onclick=()=>copyList();
+ $('lxlsx').onclick=()=>exportXLSX();$('lcsv').onclick=()=>exportCSV(false);$('lvcf').onclick=()=>exportCSV(true);$('lcopy').onclick=()=>copyList();
 }
 function debounce(f,ms){let t;return(...a)=>{clearTimeout(t);t=setTimeout(()=>f(...a),ms)}}
 function syncFilterUI(){
@@ -648,16 +648,61 @@ $('vpad').addEventListener('keydown',e=>{if(e.key==='Enter'){const row=e.target.
 $('gsform').onsubmit=e=>{e.preventDefault();const q=$('gq').value.trim();if(!q)return;openList({q},`शोध: “${q}”`)};
 
 /* ================= export ================= */
-const csvq=v=>{v=String(v??'');return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v};
+const csvq=v=>{v=String(v??'');return /[",\r\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v};
 function rowsFor(contacts){if(contacts){const out=[['Name','Given Name','Phone 1 - Type','Phone 1 - Value','Notes']];
   for(const i of CUR){const r=R[i];if(!r[I.mob])continue;out.push([r[I.name],r[I.name],'Mobile','+91'+r[I.mob],(r[I.vasti]||'')+' | '+r[I.sids].map(s=>SC[s][0]).join(', ')])}return out}
  const out=[['क्र.','नाव','दुसरे नाव','मोबाईल','दुसरा मोबाईल','आधार (शेवटचे ४)','EPIC','वय','लिंग','पत्ता','वस्ती','प्रभाग','बूथ','संभाव्य बूथ','विधानसभा','योजना','योजना संख्या','संपर्क स्थिती']];
  CUR.forEach((i,k)=>{const r=R[i];out.push([k+1,r[I.name],r[I.alt],r[I.mob],r[I.mob2],r[I.aad4],r[I.epic],r[I.age],r[I.sex],r[I.addr],r[I.vasti],r[I.pr]||'',r[I.booth]||'',bgText(r),ACS[r[I.ac]].n,r[I.sids].map(s=>SC[s][0]).join('; '),r[I.ny],stLabel(ST[r[I.pid]]?.s)])});return out}
 let DL=null;async function getDL(){return null}
 const FRAMED=false;
-function nativeSave(name,text){try{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:'text/csv;charset=utf-8'}));a.download=name;document.body.append(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},3000);return true}catch(e){return false}}
+function nativeSave(name,data){try{const b=data instanceof Blob?data:new Blob([data],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=name;document.body.append(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},4000);return true}catch(e){return false}}
+/* ---- .xlsx writer (no library): opens directly in Excel / Google Sheets / WPS with Marathi intact ---- */
+const CRCT=(()=>{const t=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0}return t})();
+function crc32(b){let c=0xFFFFFFFF;for(let i=0;i<b.length;i++)c=CRCT[(c^b[i])&255]^(c>>>8);return(c^0xFFFFFFFF)>>>0}
+async function deflateRaw(b){if(typeof CompressionStream==='undefined')return null;try{return new Uint8Array(await new Response(new Blob([b]).stream().pipeThrough(new CompressionStream('deflate-raw'))).arrayBuffer())}catch(e){return null}}
+async function zipFiles(files,type){const enc=new TextEncoder(),parts=[],cen=[];let off=0;
+ for(const[name,data]of files){const nb=enc.encode(name),crc=crc32(data);let comp=await deflateRaw(data),meth=8;if(!comp||comp.length>=data.length){comp=data;meth=0}
+  const h=new DataView(new ArrayBuffer(30));h.setUint32(0,0x04034b50,true);h.setUint16(4,20,true);h.setUint16(6,0x0800,true);h.setUint16(8,meth,true);h.setUint16(12,0x21,true);h.setUint32(14,crc,true);h.setUint32(18,comp.length,true);h.setUint32(22,data.length,true);h.setUint16(26,nb.length,true);
+  parts.push(new Uint8Array(h.buffer),nb,comp);
+  const c=new DataView(new ArrayBuffer(46));c.setUint32(0,0x02014b50,true);c.setUint16(4,20,true);c.setUint16(6,20,true);c.setUint16(8,0x0800,true);c.setUint16(10,meth,true);c.setUint16(14,0x21,true);c.setUint32(16,crc,true);c.setUint32(20,comp.length,true);c.setUint32(24,data.length,true);c.setUint16(28,nb.length,true);c.setUint32(42,off,true);
+  cen.push(new Uint8Array(c.buffer),nb);off+=30+nb.length+comp.length}
+ let cs=0;for(const p of cen)cs+=p.length;const e=new DataView(new ArrayBuffer(22));e.setUint32(0,0x06054b50,true);e.setUint16(8,files.length,true);e.setUint16(10,files.length,true);e.setUint32(12,cs,true);e.setUint32(16,off,true);
+ return new Blob([...parts,...cen,new Uint8Array(e.buffer)],{type})}
+const xesc=s=>String(s).replace(/[\x00-\x08\x0B\x0C\x0E-\x1F￾￿]/g,'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+function colL(n){let s='';n++;while(n>0){const m=(n-1)%26;s=String.fromCharCode(65+m)+s;n=(n-m-1)/26}return s}
+async function makeXLSX(rows,widths,sheet){const NS='http://schemas.openxmlformats.org/',X='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n',nc=rows[0].length,ref='A1:'+colL(nc-1)+rows.length;
+ const out=[X+`<worksheet xmlns="${NS}spreadsheetml/2006/main" xmlns:r="${NS}officeDocument/2006/relationships"><dimension ref="${ref}"/><sheetViews><sheetView workbookViewId="0"><pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen"/></sheetView></sheetViews><sheetFormatPr defaultRowHeight="15"/><cols>`+widths.map((w,i)=>`<col min="${i+1}" max="${i+1}" width="${w}" customWidth="1"/>`).join('')+'</cols><sheetData>'];
+ rows.forEach((r,ri)=>{let s=`<row r="${ri+1}">`;for(let ci=0;ci<r.length;ci++){const v=r[ci];if(v===null||v===undefined||v==='')continue;const a=colL(ci)+(ri+1);
+   if(ri===0)s+=`<c r="${a}" s="1" t="inlineStr"><is><t xml:space="preserve">${xesc(v)}</t></is></c>`;
+   else if(typeof v==='number'&&isFinite(v))s+=`<c r="${a}"><v>${v}</v></c>`;
+   else if(typeof v==='object')s+=`<c r="${a}" s="2" t="str"><f>${xesc(v.f)}</f><v>${xesc(v.v)}</v></c>`;
+   else s+=`<c r="${a}" t="inlineStr"><is><t xml:space="preserve">${xesc(v)}</t></is></c>`}
+  out.push(s+'</row>')});
+ out.push(`</sheetData><autoFilter ref="${ref}"/><pageMargins left="0.4" right="0.4" top="0.5" bottom="0.5" header="0.3" footer="0.3"/></worksheet>`);
+ const sn=xesc(sheet||'यादी');
+ const styles=X+`<styleSheet xmlns="${NS}spreadsheetml/2006/main"><fonts count="3"><font><sz val="11"/><name val="Calibri"/></font><font><b/><sz val="11"/><color rgb="FFFFFFFF"/><name val="Calibri"/></font><font><u/><sz val="11"/><color rgb="FF0563C1"/><name val="Calibri"/></font></fonts><fills count="3"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill><fill><patternFill patternType="solid"><fgColor rgb="FFE8590C"/><bgColor indexed="64"/></patternFill></fill></fills><borders count="1"><border><left/><right/><top/><bottom/><diagonal/></border></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="3"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/><xf numFmtId="0" fontId="1" fillId="2" borderId="0" xfId="0" applyFont="1" applyFill="1"/><xf numFmtId="0" fontId="2" fillId="0" borderId="0" xfId="0" applyFont="1"/></cellXfs><cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles></styleSheet>`;
+ const enc=new TextEncoder(),R=NS+'officeDocument/2006/relationships/';
+ return zipFiles([
+  ['[Content_Types].xml',enc.encode(X+`<Types xmlns="${NS}package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/></Types>`)],
+  ['_rels/.rels',enc.encode(X+`<Relationships xmlns="${NS}package/2006/relationships"><Relationship Id="rId1" Type="${R}officeDocument" Target="xl/workbook.xml"/></Relationships>`)],
+  ['xl/workbook.xml',enc.encode(X+`<workbook xmlns="${NS}spreadsheetml/2006/main" xmlns:r="${NS}officeDocument/2006/relationships"><bookViews><workbookView/></bookViews><sheets><sheet name="${sn}" sheetId="1" r:id="rId1"/></sheets><definedNames><definedName name="_xlnm._FilterDatabase" localSheetId="0" hidden="1">'${sn}'!$A$1:$${colL(nc-1)}$${rows.length}</definedName></definedNames></workbook>`)],
+  ['xl/_rels/workbook.xml.rels',enc.encode(X+`<Relationships xmlns="${NS}package/2006/relationships"><Relationship Id="rId1" Type="${R}worksheet" Target="worksheets/sheet1.xml"/><Relationship Id="rId2" Type="${R}styles" Target="styles.xml"/></Relationships>`)],
+  ['xl/styles.xml',enc.encode(styles)],
+  ['xl/worksheets/sheet1.xml',new Uint8Array(await new Blob(out).arrayBuffer())]
+ ],'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')}
+function fileName(prefix,ext){return prefix+($('ltitle').textContent.replace(/[^\wऀ-ॿ]+/g,'_').replace(/^_+|_+$/g,'').slice(0,40))+ext}
+async function exportXLSX(){if(!CUR.length){toast('यादी रिकामी आहे');return}
+ toast('Excel फाईल तयार होत आहे…');await new Promise(r=>setTimeout(r,30));
+ let blob;try{const rows=rowsFor(false),NUM=[0,7,11,12,16];rows[0].push('WhatsApp');
+  for(let k=1;k<rows.length;k++){const r=rows[k];for(const c of NUM){const v=r[c];if(typeof v==='string'&&/^\d{1,9}$/.test(v.trim()))r[c]=+v}
+   const m=String(r[3]||'').trim();r.push(/^[6-9]\d{9}$/.test(m)?{f:`HYPERLINK("https://wa.me/91${m}","WhatsApp")`,v:'WhatsApp'}:'')}
+  blob=await makeXLSX(rows,[6,26,20,12,12,8,13,5,6,42,22,7,6,22,14,44,7,12,11],'यादी')}catch(e){toast('Excel फाईल बनली नाही — CSV वापरा');return}
+ const name=fileName('labharthi_','.xlsx');
+ const dl=await getDL();if(dl){try{await dl.save({filename:name,data:blob});toast('Excel फाईल सेव्ह झाली');return}catch(e){if(e&&e.code==='declined')return}}
+ if(!FRAMED&&nativeSave(name,blob)){toast('Excel फाईल डाउनलोड झाली');return}
+ toast('डाउनलोड इथे चालत नाही — "कॉपी" बटण वापरा')}
 async function exportCSV(contacts){if(!CUR.length){toast('यादी रिकामी आहे');return}
- const csv='﻿'+rowsFor(contacts).map(r=>r.map(csvq).join(',')).join('\n');const name=(contacts?'contacts_':'labharthi_')+($('ltitle').textContent.replace(/[^\wऀ-ॿ]+/g,'_').slice(0,40))+'.csv';
+ const csv='﻿'+rowsFor(contacts).map(r=>r.map(csvq).join(',')).join('\n');const name=fileName(contacts?'contacts_':'labharthi_','.csv');
  const dl=await getDL();if(dl){try{await dl.save({filename:name,data:new Blob([csv])});toast('फाईल सेव्ह झाली');return}catch(e){if(e&&e.code==='declined')return}}
  if(!FRAMED&&nativeSave(name,csv)){toast('फाईल डाउनलोड झाली');return}
  await copy(csv.slice(1));toast('डाउनलोड इथे चालत नाही — यादी कॉपी केली; Excel/Sheets मध्ये पेस्ट करा')}
