@@ -216,7 +216,7 @@ footer{color:var(--dim);font-size:13px;text-align:center}
   <h1>नागपूर लाभार्थी संपर्क</h1>
   <p class="mut" style="margin:0">योजनांचा लाभ घेतलेल्या प्रत्येक माणसाची यादी — प्रभाग, वस्ती व बूथनिहाय. आपला कोड टाकून उघडा.</p>
   <label class="flab" for="code">आपला कोड
-   <input class="txt" id="code" name="code" type="password" placeholder="उदा. E07-K7P2M9QX" autocomplete="off" spellcheck="false">
+   <input class="txt" id="code" name="code" type="text" placeholder="उदा. P25-K7P2M9QXAB" autocomplete="off" autocapitalize="characters" autocorrect="off" spellcheck="false" style="text-transform:uppercase;letter-spacing:.06em">
   </label>
   <label class="chk"><input type="checkbox" id="remember"> या फोनवर कोड लक्षात ठेवा</label>
   <div class="row"><button class="btn" id="openbtn" type="submit">उघडा</button><span class="mut" id="lockmsg"></span></div>
@@ -410,22 +410,28 @@ async function kek(pass,salt,iter){const base=await crypto.subtle.importKey('raw
 async function unwrap(k,w){const raw=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(w.iv)},k,b64(w.ct));return crypto.subtle.importKey('raw',raw,'AES-GCM',false,['decrypt'])}
 const PACKS={};
 async function pack(fn){if(!PACKS[fn])PACKS[fn]=fetch('data/'+fn).then(r=>{if(!r.ok)throw new Error('fetch');return r.text()}).then(t=>b64(t.trim()).buffer);return PACKS[fn]}
+let PAKO=null;function loadPako(){if(PAKO)return PAKO;PAKO=new Promise((ok,bad)=>{const s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/pako/2.1.0/pako.min.js';s.onload=()=>ok(window.pako);s.onerror=()=>bad(new Error('pako'));document.head.append(s)});return PAKO}
+async function gunzipText(buf){if(typeof DecompressionStream!=='undefined'){try{return await new Response(new Blob([buf]).stream().pipeThrough(new DecompressionStream('gzip'))).text()}catch(e){}}
+ const pk=await loadPako();return new TextDecoder().decode(pk.ungzip(new Uint8Array(buf)))}
 async function openChunk(c,key){const buf=await pack(c.file);const part=buf.slice(c.off,c.off+c.len);
  const plain=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(c.iv)},key,part);
- const txt=await new Response(new Blob([plain]).stream().pipeThrough(new DecompressionStream('gzip'))).text();return JSON.parse(txt)}
+ return JSON.parse(await gunzipText(plain))}
+const normCode=s=>String(s||'').trim().toUpperCase().replace(/[\u2010-\u2015\u2212\u2E3A\u2E3B]/g,'-').replace(/\s+/g,'');
+async function tryUnwrap(k,w){try{return await unwrap(k,w)}catch(e){throw new Error('code')}}
 function setProg(p,msg){$('prog').hidden=false;$('prog').firstElementChild.style.width=(p*100).toFixed(0)+'%';$('lockmsg').textContent=msg||''}
 async function unlock(code){
- code=code.trim();$('lockerr').textContent='';
+ code=normCode(code);$('lockerr').textContent='';
+ if(!window.crypto||!crypto.subtle){$('lockerr').textContent='हा ब्राउझर सुरक्षित (https) पद्धतीने उघडलेला नाही. लिंक Chrome मध्ये उघडा.';return}
  if(!code){$('lockerr').textContent='कोड टाका.';return}
  $('openbtn').disabled=true;setProg(.05,'तपासत आहे…');
  try{
   if(!META){const r=await fetch('data/index.json');if(!r.ok)throw new Error('fetch');META=await r.json()}
-  let jobs=[];const m=code.toUpperCase().replace(/\s+/g,'').match(/^([A-Z]{1,2}\d{2,6})-([A-Z0-9]{6,})$/);
+  let jobs=[];const m=code.match(/^([A-Z]{1,2}\d{2,6})-([A-Z0-9]{6,})$/);
   if(m){const g=META.groups[m[1]];if(!g)throw new Error('code');
    const k=await kek(m[2],g.salt,META.kdf.code);
-   for(const c of META.chunks){if(c.gw[m[1]])jobs.push([c,await unwrap(k,c.gw[m[1]])])}
+   for(const c of META.chunks){if(c.gw[m[1]])jobs.push([c,await tryUnwrap(k,c.gw[m[1]])])}
    SCOPE={type:'group',gid:m[1],label:g.label}}
-  else{const k=await kek(code,META.admin.salt,META.kdf.admin);const mk=await unwrap(k,META.admin);
+  else{const k=await kek(code,META.admin.salt,META.kdf.admin);const mk=await tryUnwrap(k,META.admin);
    for(const c of META.chunks)jobs.push([c,await unwrap(mk,c.aw)]);SCOPE={type:'admin',label:'सर्व ६ विधानसभा · प्रशासक'}}
   R=[];let done=0;const metas=[];setProg(.1,'डेटा उघडत आहे…');
   const q=jobs.slice();async function worker(){while(q.length){const[c,k]=q.shift();const d=await openChunk(c,k);metas.push(d.meta);for(const r of d.rows)R.push(r);done++;if(done%8===0||done===jobs.length)setProg(.1+.85*done/jobs.length,`डेटा उघडत आहे… ${Math.round(done/jobs.length*100)}%`)}}
@@ -433,7 +439,9 @@ async function unlock(code){
   SCOPE.metas=metas;
   if($('remember').checked)LS.set('nls_code',code);else LS.del('nls_code');
   setProg(1,'तयार');boot();
- }catch(e){console.log('[nls] unlock',e&&e.message);$('lockerr').textContent=e&&e.message==='fetch'?'डेटा फाईल उघडली नाही. इंटरनेट तपासून पुन्हा प्रयत्न करा.':'कोड चुकीचा आहे. पुन्हा तपासून टाका.';$('prog').hidden=true;$('lockmsg').textContent=''}
+ }catch(e){const msg=e&&e.message;console.log('[nls] unlock',e&&e.name,msg);
+  $('lockerr').textContent=msg==='code'?'कोड चुकीचा आहे. पुन्हा तपासून टाका.':(msg==='fetch'||msg==='pako')?'डेटा फाईल उघडली नाही. इंटरनेट तपासून पुन्हा प्रयत्न करा.':`हा ब्राउझर डेटा उघडू शकला नाही (${(e&&e.name)||''} ${msg||''}). लिंक Google Chrome मध्ये उघडा किंवा Chrome अपडेट करा.`;
+  $('prog').hidden=true;$('lockmsg').textContent=''}
  finally{$('openbtn').disabled=false}
 }
 $('lockform').onsubmit=e=>{e.preventDefault();unlock($('code').value)};
