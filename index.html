@@ -1,0 +1,747 @@
+<!doctype html><html lang="mr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#060a1c"><link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiNmZjdhMDAiLz48ZyBmaWxsPSIjZmZmIj48cGF0aCBkPSJNMzIgMTBjNiA4IDggMTYgMCAzMC04LTE0LTYtMjIgMC0zMHoiLz48cGF0aCBkPSJNMTQgMjRjMTAgMiAxNSA5IDE2IDIwLTEyLTMtMTYtMTAtMTYtMjB6IiBvcGFjaXR5PSIuOSIvPjxwYXRoIGQ9Ik01MCAyNGMtMTAgMi0xNSA5LTE2IDIwIDEyLTMgMTYtMTAgMTYtMjB6IiBvcGFjaXR5PSIuOSIvPjxyZWN0IHg9IjE0IiB5PSI1MCIgd2lkdGg9IjM2IiBoZWlnaHQ9IjUiIHJ4PSIyLjUiLz48L2c+PC9zdmc+"><link rel="manifest" href="manifest.webmanifest"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="लाभार्थी संपर्क"><style>:root{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}body{margin:0;font:14px system-ui}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>नागपूर लाभार्थी संपर्क</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Mukta:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: sticky glass header + tab bar; hero KPIs; view panels; full-height list sheet. Dark cinematic aurora, one visual world. */
+:root{
+ --bg:#060a1c;--bg2:#0b1230;--ink:#f3f5ff;--mut:#9ea8d2;--dim:#6f79a3;
+ --glass:rgba(255,255,255,.065);--glass2:rgba(255,255,255,.11);--line:rgba(255,255,255,.14);
+ --saf:#ff9933;--gold:#ffc94a;--grn:#2ee59d;--sky:#38c6f4;--pink:#ff5c9a;--vio:#a68bff;--red:#ff6b6b;--teal:#2dd4bf;
+ --disp:"Baloo 2","Kohinoor Devanagari","Nirmala UI","Noto Sans Devanagari",sans-serif;
+ --body:"Mukta","Kohinoor Devanagari","Nirmala UI","Noto Sans Devanagari",system-ui,sans-serif;
+ color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.5 var(--body);min-height:100vh;overflow-x:hidden;-webkit-tap-highlight-color:transparent}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
+.aurora{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.aurora i{position:absolute;border-radius:50%;filter:blur(90px);opacity:.42;animation:drift 26s ease-in-out infinite alternate}
+.aurora i:nth-child(1){width:48vw;height:48vw;background:#ff6a00;left:-14vw;top:-16vw}
+.aurora i:nth-child(2){width:40vw;height:40vw;background:#c2187a;right:-12vw;top:6vw;animation-delay:-7s}
+.aurora i:nth-child(3){width:46vw;height:46vw;background:#0a5cff;left:20vw;top:52vw;animation-delay:-12s}
+.aurora i:nth-child(4){width:34vw;height:34vw;background:#00a37a;right:0;top:80vw;animation-delay:-3s}
+@keyframes drift{to{transform:translate(6vw,5vw) scale(1.15)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+button,input,select,textarea{font-family:var(--body);font-size:16px;color:var(--ink)}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.glass{background:var(--glass);border:1px solid var(--line);border-radius:22px;backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);box-shadow:0 18px 50px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.1)}
+.wrap{position:relative;z-index:1;max-width:1360px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:18px 80px;display:flex;flex-direction:column;gap:22px}
+.tn{font-variant-numeric:tabular-nums}
+h1,h2,h3{font-family:var(--disp);margin:0;text-wrap:balance}
+.eyebrow{font:700 12.5px var(--body);letter-spacing:.16em;color:var(--gold);text-transform:uppercase}
+.mut{color:var(--mut)}
+.btn{border:0;border-radius:999px;padding:11px 20px;font-weight:700;color:#1c0d00;background:linear-gradient(135deg,var(--gold),var(--saf));white-space:nowrap}
+.btn.ghost{background:var(--glass2);color:var(--ink);border:1px solid var(--line)}
+.btn.wa{background:linear-gradient(135deg,#3ae374,#16a34a);color:#04210f}
+.btn.sm{padding:7px 14px;font-size:14px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+input.txt,select.txt,textarea.txt{background:rgba(255,255,255,.07);border:1px solid var(--line);border-radius:14px;padding:10px 14px;outline:0;min-width:0;width:100%}
+select.txt option{background:#0b1230;color:var(--ink)}
+input.txt::placeholder,textarea.txt::placeholder{color:var(--dim)}
+
+/* ---------- lock ---------- */
+#lock{position:relative;z-index:2;min-height:100vh;display:grid;place-items:center;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:30px}
+.lockcard{width:min(100%,520px);padding:34px clamp(20px,5vw,40px);display:flex;flex-direction:column;gap:16px}
+.lockcard h1{font-size:clamp(32px,7vw,46px);line-height:1.05;background:linear-gradient(92deg,#fff 10%,#ffd9a8 50%,#ff9ac4);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lotus{width:62px;height:62px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(135deg,var(--saf),#ff5e00);box-shadow:0 10px 40px rgba(255,120,0,.45)}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.chk{display:flex;gap:8px;align-items:center;color:var(--mut);font-size:15px}
+.err{color:#ffb4b4;font-weight:600;min-height:1.4em}
+.prog{height:6px;border-radius:9px;background:rgba(255,255,255,.1);overflow:hidden}
+.prog b{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--saf));transition:width .3s}
+
+/* ---------- header ---------- */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(6,10,28,.78);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.topin{max-width:1360px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:10px;display:flex;flex-direction:column;gap:10px}
+.brand{display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap}
+.brand .t{display:flex;flex-direction:column;min-width:0}
+.brand .t b{font:800 clamp(20px,3vw,26px)/1.1 var(--disp)}
+.brand .t span{font-size:13.5px;color:var(--mut)}
+.gsearch{display:flex;gap:8px;flex:1;min-width:min(100%,320px);max-width:560px}
+.tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;border:1px solid var(--line);background:rgba(255,255,255,.05);border-radius:999px;padding:7px 15px;font-weight:600;font-size:15px;color:var(--mut)}
+.tab.on{background:linear-gradient(135deg,rgba(255,201,74,.25),rgba(255,153,51,.2));color:#fff;border-color:rgba(255,190,90,.6)}
+.acbar{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+.acbar::-webkit-scrollbar{display:none}
+.acchip{flex:none;border:1px solid var(--line);background:transparent;border-radius:12px;padding:4px 12px;font-size:14px;color:var(--mut)}
+.acchip.on{color:#fff;border-color:var(--k);background:color-mix(in srgb,var(--k) 22%,transparent)}
+
+/* ---------- overview ---------- */
+.hero{display:grid;grid-template-columns:1.15fr 1fr;gap:18px}
+@media(max-width:900px){.hero{grid-template-columns:1fr}}
+.big{padding:26px clamp(20px,3vw,36px);position:relative;overflow:hidden;display:flex;flex-direction:column;gap:6px}
+.big:after{content:"";position:absolute;right:-90px;bottom:-90px;width:280px;height:280px;border-radius:50%;background:conic-gradient(from 0deg,var(--saf),var(--pink),var(--vio),var(--sky),var(--grn),var(--gold),var(--saf));opacity:.25;filter:blur(8px);animation:spin 34s linear infinite}
+@keyframes spin{to{transform:rotate(1turn)}}
+.big .num{font:800 clamp(56px,10vw,120px)/1 var(--disp);background:linear-gradient(180deg,#fff,#ffc98a);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-.02em}
+.big .lab{font:700 clamp(19px,2.3vw,26px) var(--disp)}
+.big .line{font-size:17px;color:#ffe6c8;position:relative;z-index:1}
+.big .line b{font:800 1.45em var(--disp);color:var(--sky)}
+.kpis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.kpi{padding:16px 18px;text-align:left;border-radius:20px;position:relative;overflow:hidden;transition:transform .2s;border:1px solid var(--line);background:var(--glass);color:var(--ink)}
+.kpi:hover{transform:translateY(-3px)}
+.kpi:before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:var(--k)}
+.kpi .v{font:800 clamp(26px,3.2vw,38px)/1.1 var(--disp);color:var(--k)}
+.kpi .t{color:var(--mut);font-size:14.5px;line-height:1.3}
+.sec{padding:22px clamp(16px,2.4vw,30px);display:flex;flex-direction:column;gap:16px}
+.sech{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:baseline}
+.sech h2{font-size:clamp(21px,2.5vw,28px)}
+.hint{color:var(--mut);font-size:14.5px}
+.acgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.accard{border:1px solid var(--line);background:linear-gradient(160deg,color-mix(in srgb,var(--k) 18%,transparent),rgba(255,255,255,.03));border-radius:20px;padding:16px;text-align:left;display:flex;flex-direction:column;gap:6px;color:var(--ink);transition:transform .2s}
+.accard:hover{transform:translateY(-3px)}
+.accard .no{font-size:13px;color:var(--k);font-weight:700;letter-spacing:.06em}
+.accard .nm{font:700 20px/1.2 var(--disp)}
+.accard .n{font:800 30px/1 var(--disp)}
+.accard .s{font-size:13.5px;color:var(--mut)}
+.mini{display:flex;height:7px;border-radius:9px;overflow:hidden;background:rgba(255,255,255,.08)}
+.mini i{display:block;height:100%}
+.two{display:grid;grid-template-columns:minmax(260px,400px) minmax(0,1fr);gap:20px}
+@media(max-width:900px){.two{grid-template-columns:1fr}}
+.donutbox{display:flex;flex-direction:column;align-items:center;gap:12px}
+.donut{width:min(100%,300px);height:auto}
+.seg{cursor:pointer;fill:none;transition:stroke-width .2s}
+.seg:hover{stroke-width:38}
+.legend{display:flex;flex-direction:column;gap:6px;width:100%}
+.chip{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border:1px solid var(--line);color:var(--ink);padding:8px 12px;border-radius:14px;font-size:15px;text-align:left;width:100%}
+.chip:hover,.chip.on{background:rgba(255,255,255,.14)}
+.chip i{width:13px;height:13px;border-radius:4px;background:var(--k);flex:none;box-shadow:0 0 12px var(--k)}
+.chip span{flex:1;min-width:0}
+.bars{display:flex;flex-direction:column;gap:6px;max-height:540px;overflow-y:auto;padding-right:4px}
+.bar{display:grid;grid-template-columns:minmax(110px,230px) minmax(0,1fr) 78px;gap:10px;align-items:center;background:none;border:0;color:var(--ink);text-align:left;padding:5px 6px;border-radius:10px;font-size:15px}
+.bar:hover{background:rgba(255,255,255,.07)}
+.bar .track{height:14px;border-radius:9px;background:rgba(255,255,255,.07);overflow:hidden}
+.bar .track b{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,var(--k),color-mix(in srgb,var(--k) 55%,#fff));animation:grow .9s ease-out both}
+@keyframes grow{from{width:0!important}}
+.bar em{font-style:normal;font-weight:700;text-align:right}
+.bar .lbl{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dist{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;align-items:end;height:220px}
+.dcol{display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end;background:none;border:0;color:var(--ink);padding:0}
+.dcol .col{width:100%;max-width:90px;border-radius:12px 12px 4px 4px;background:linear-gradient(180deg,var(--k),color-mix(in srgb,var(--k) 40%,transparent));min-height:6px}
+.dcol b{font:800 18px var(--disp)}
+.dcol span{font-size:13.5px;color:var(--mut);text-align:center}
+
+/* ---------- schemes ---------- */
+.thtabs{display:flex;gap:6px;flex-wrap:wrap}
+.thtabs .chip{width:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.card{border:1px solid var(--line);background:linear-gradient(160deg,color-mix(in srgb,var(--k) 16%,transparent),rgba(255,255,255,.03));border-radius:18px;padding:15px;text-align:left;color:var(--ink);display:flex;flex-direction:column;justify-content:space-between;gap:10px;min-height:136px;transition:transform .2s}
+.card:hover{transform:translateY(-3px);border-color:var(--k)}
+.card .nm{font:600 17px/1.3 var(--body)}
+.card .ct{font:800 30px/1 var(--disp);color:var(--k)}
+.card .ft{display:flex;justify-content:space-between;gap:8px;font-size:13px;color:var(--mut);flex-wrap:wrap}
+.tag{display:inline-block;padding:2px 9px;border-radius:999px;background:rgba(255,255,255,.09);font-size:12.5px}
+
+/* ---------- prabhag ---------- */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px}
+.ptile{border:1px solid var(--line);border-radius:14px;padding:10px 8px;text-align:center;color:var(--ink);background:rgba(255,153,51,var(--a));display:flex;flex-direction:column;gap:2px}
+.ptile:hover{border-color:var(--gold)}
+.ptile b{font:800 20px/1 var(--disp)}
+.ptile span{font-size:12.5px;color:#ffe9cf}
+.ptile.unk{background:rgba(255,255,255,.05)}
+.ptile.unk span{color:var(--mut)}
+.list2{display:flex;flex-direction:column;gap:6px}
+.vrow{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:12px;align-items:center;padding:10px 14px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--ink);text-align:left}
+.vrow:hover{background:rgba(255,255,255,.1)}
+.vrow .a{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.vrow .b{font-size:13.5px;color:var(--mut)}
+.vrow .c{font:800 18px var(--disp);color:var(--gold)}
+.cols2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}
+@media(max-width:900px){.cols2{grid-template-columns:1fr}}
+
+/* ---------- list ---------- */
+.filters{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px}
+.flab{display:flex;flex-direction:column;gap:3px;font-size:13px;color:var(--mut);min-width:0}
+.lhead{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.vlist{position:relative;height:min(70vh,760px);overflow-y:auto;border-radius:16px;border:1px solid var(--line);background:rgba(0,0,0,.18)}
+.vlist .pad{position:relative}
+.prow{position:absolute;left:0;right:0;height:76px;display:grid;grid-template-columns:44px minmax(0,1.3fr) minmax(0,1fr) minmax(0,1.2fr) auto;gap:12px;align-items:center;padding:8px 14px;border-bottom:1px solid rgba(255,255,255,.07);cursor:pointer}
+.prow:hover{background:rgba(255,255,255,.06)}
+.prow .i{font-size:13px;color:var(--dim)}
+.prow .nm{font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.prow .sb{font-size:13px;color:var(--mut);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.prow .pills{display:flex;gap:4px;flex-wrap:nowrap;overflow:hidden}
+.pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:12.5px;background:color-mix(in srgb,var(--k,#fff) 22%,transparent);border:1px solid color-mix(in srgb,var(--k,#fff) 45%,transparent);white-space:nowrap}
+.cnt{font:800 15px var(--disp);min-width:30px;height:30px;border-radius:10px;display:grid;place-items:center;background:rgba(255,201,74,.16);color:var(--gold)}
+.st{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:6px;background:var(--dim)}
+.st.done{background:var(--grn)}.st.na{background:var(--red)}.st.again{background:var(--gold)}
+@media(max-width:760px){
+ .prow{grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto;height:76px;row-gap:2px}
+ .prow .i,.prow .c3{display:none}
+ .prow .c2{grid-column:1;grid-row:2}
+ .prow .c4{grid-column:2;grid-row:1/3}
+}
+.empty{padding:40px 16px;text-align:center;color:var(--mut)}
+
+/* ---------- drawer ---------- */
+.ov{position:fixed;inset:0;z-index:70;background:rgba(2,4,14,.62);backdrop-filter:blur(4px);display:flex;justify-content:flex-end}
+.drawer{width:min(100%,520px);height:100%;overflow-y:auto;background:linear-gradient(180deg,#0d1536,#080d24);border-left:1px solid var(--line);padding-top:max(18px,env(safe-area-inset-top,0px));padding-bottom:max(30px,env(safe-area-inset-bottom,0px));padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:14px}
+.dh{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.dh h3{font-size:26px;line-height:1.15}
+.x{border:1px solid var(--line);background:rgba(255,255,255,.08);border-radius:12px;width:42px;height:42px;flex:none;font-size:18px}
+.kv{display:grid;grid-template-columns:120px minmax(0,1fr);gap:6px 12px;font-size:15.5px}
+.kv dt{color:var(--mut)}
+.kv dd{margin:0;word-break:break-word}
+.msg{white-space:pre-wrap;background:rgba(46,229,157,.08);border:1px solid rgba(46,229,157,.35);border-radius:16px;padding:14px;font-size:15.5px;line-height:1.55}
+.stbtns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.stbtns button{border:1px solid var(--line);background:rgba(255,255,255,.06);border-radius:12px;padding:9px 6px;font-size:14px}
+.stbtns button.on{border-color:var(--k);background:color-mix(in srgb,var(--k) 25%,transparent)}
+
+/* ---------- outreach ---------- */
+.qcard{padding:22px clamp(16px,3vw,30px);display:flex;flex-direction:column;gap:14px;max-width:760px;width:100%;margin:0 auto}
+.qname{font:800 clamp(26px,4vw,36px)/1.1 var(--disp)}
+.qmeta{display:flex;gap:8px;flex-wrap:wrap}
+.qnav{display:flex;gap:8px;flex-wrap:wrap;justify-content:space-between}
+.toast{position:fixed;left:50%;bottom:max(24px,env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:90;background:#13204f;border:1px solid var(--line);padding:10px 18px;border-radius:999px;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.note{padding:16px 20px;font-size:14.5px;color:var(--mut);line-height:1.6}
+.note b{color:var(--ink)}
+footer{color:var(--dim);font-size:13px;text-align:center}
+.tablewrap{overflow-x:auto}
+.fbox summary{cursor:pointer;color:var(--gold);font-weight:600;padding:4px 0;list-style:none}
+.fbox summary::-webkit-details-marker{display:none}
+.fbox summary:before{content:"▸ ";}
+.fbox[open] summary:before{content:"▾ ";}
+.fbox[open] summary{margin-bottom:10px}
+@media(max-width:760px){header.top{position:static}.brand .row .btn{padding:6px 12px;font-size:13.5px}.lhead .row .btn{font-size:13.5px}}
+</style>
+
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+<!-- ================= LOCK ================= -->
+<section id="lock">
+ <form class="lockcard glass" id="lockform" autocomplete="off">
+  <div class="lotus" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 64 64"><g fill="#fff"><path d="M32 8c6 8 8 16 0 30-8-14-6-22 0-30z"/><path d="M14 22c10 2 15 9 16 20-12-3-16-10-16-20z" opacity=".9"/><path d="M50 22c-10 2-15 9-16 20 12-3 16-10 16-20z" opacity=".9"/><path d="M6 38c10-2 18 2 24 8-10 4-18 2-24-8z" opacity=".75"/><path d="M58 38c-10-2-18 2-24 8 10 4 18 2 24-8z" opacity=".75"/><rect x="12" y="50" width="40" height="5" rx="2.5"/></g></svg></div>
+  <div class="eyebrow">भाजपा नागपूर · ६ विधानसभा</div>
+  <h1>नागपूर लाभार्थी संपर्क</h1>
+  <p class="mut" style="margin:0">योजनांचा लाभ घेतलेल्या प्रत्येक माणसाची यादी — प्रभाग, वस्ती व बूथनिहाय. आपला कोड टाकून उघडा.</p>
+  <label class="flab" for="code">आपला कोड
+   <input class="txt" id="code" name="code" type="password" placeholder="उदा. E07-K7P2M9QX" autocomplete="off" spellcheck="false">
+  </label>
+  <label class="chk"><input type="checkbox" id="remember"> या फोनवर कोड लक्षात ठेवा</label>
+  <div class="row"><button class="btn" id="openbtn" type="submit">उघडा</button><span class="mut" id="lockmsg"></span></div>
+  <div class="prog" id="prog" hidden><b></b></div>
+  <div class="err" id="lockerr" role="alert"></div>
+  <p class="mut" style="margin:0;font-size:13.5px">ही माहिती लोकांची खासगी माहिती आहे. कोड कोणालाही देऊ नका. यादीचा वापर फक्त लोकांना मदत करण्यासाठी आणि संपर्कासाठी करा.</p>
+ </form>
+</section>
+
+<!-- ================= APP ================= -->
+<div id="app" hidden>
+ <header class="top">
+  <div class="topin">
+   <div class="brand">
+    <div class="t"><b>नागपूर लाभार्थी संपर्क</b><span id="scope"></span></div>
+    <form class="gsearch" id="gsform" role="search">
+     <input class="txt" id="gq" placeholder="नाव, मोबाईल, वस्ती, आधार शेवटचे ४, EPIC — काहीही शोधा" autocomplete="off">
+     <button class="btn" type="submit">शोधा</button>
+    </form>
+    <div class="row">
+     <button class="btn ghost sm" id="setbtn" type="button">माझी माहिती</button>
+     <button class="btn ghost sm" id="lockbtn" type="button">बंद करा</button>
+    </div>
+   </div>
+   <nav class="tabs" id="tabs" aria-label="विभाग"></nav>
+   <div class="acbar" id="acbar"></div>
+  </div>
+ </header>
+
+ <main class="wrap">
+  <!-- OVERVIEW -->
+  <div id="v-home" class="view">
+   <div style="display:flex;flex-direction:column;gap:22px">
+   <section class="hero">
+    <div class="big glass">
+     <div class="lab">एकूण लाभार्थी लोक</div>
+     <div class="num tn" id="hnum">0</div>
+     <div class="line">यांना मिळाले <b class="tn" id="hsev">0</b> सेवा-लाभ · <b class="tn" id="hsch">0</b> प्रकारच्या योजना व सेवा</div>
+     <div class="line mut" id="hsub" style="font-size:15px"></div>
+    </div>
+    <div class="kpis" id="kpis"></div>
+   </section>
+   <section class="sec glass" id="acsec">
+    <div class="sech"><h2>विधानसभानिहाय लाभार्थी</h2><span class="hint">कार्डवर क्लिक करा — त्या विधानसभेचा डेटा दिसेल</span></div>
+    <div class="acgrid" id="acgrid"></div>
+   </section>
+   <section class="sec glass">
+    <div class="sech"><h2>कोणत्या क्षेत्रात किती लाभ</h2><span class="hint">रंगावर किंवा पट्टीवर क्लिक करा — पूर्ण यादी उघडेल</span></div>
+    <div class="two">
+     <div class="donutbox"><svg class="donut" id="donut" viewBox="0 0 240 240" role="img" aria-label="क्षेत्रनिहाय लाभ"></svg><div class="legend" id="legend"></div></div>
+     <div class="bars" id="bars"></div>
+    </div>
+   </section>
+   <section class="sec glass">
+    <div class="sech"><h2>एका माणसाला किती योजनांचा लाभ</h2><span class="hint">स्तंभावर क्लिक करा — ते लोक दिसतील</span></div>
+    <div class="dist" id="dist"></div>
+    <div class="sech" style="margin-top:6px"><h3 style="font-size:20px">सर्वात जास्त योजनांचा लाभ घेतलेले लोक</h3><button class="btn ghost sm" id="topall" type="button">सर्व यादी पहा</button></div>
+    <div class="list2" id="toplist"></div>
+   </section>
+   </div>
+  </div>
+
+  <!-- SCHEMES -->
+  <div id="v-sch" class="view" hidden>
+   <section class="sec glass">
+    <div class="sech"><h2>सर्व योजना व सेवा</h2><span class="hint" id="schhint"></span></div>
+    <div class="thtabs" id="thtabs"></div>
+    <div class="grid" id="schgrid"></div>
+   </section>
+  </div>
+
+  <!-- PRABHAG & BOOTH -->
+  <div id="v-pb" class="view" hidden>
+   <div style="display:flex;flex-direction:column;gap:22px">
+   <section class="sec glass">
+    <div class="sech"><h2>प्रभागनिहाय लाभार्थी</h2><span class="hint" id="phint"></span></div>
+    <div class="pgrid" id="pgrid"></div>
+   </section>
+   <section class="sec glass" id="pdetail" hidden>
+    <div class="sech"><h2 id="pdt"></h2><div class="row"><button class="btn sm" id="pdlist" type="button">पूर्ण यादी</button><button class="btn wa sm" id="pdq" type="button">संपर्क सुरू करा</button></div></div>
+    <div class="cols2">
+     <div><h3 style="font-size:18px;margin-bottom:8px">वस्ती / भाग</h3><div class="list2" id="pdv"></div></div>
+     <div><h3 style="font-size:18px;margin-bottom:8px">योजना</h3><div class="bars" id="pds" style="max-height:420px"></div></div>
+    </div>
+   </section>
+   <section class="sec glass">
+    <div class="sech"><h2>बूथनिहाय (मतदान केंद्र / भाग क्र.)</h2><span class="hint" id="bhint"></span></div>
+    <div class="pgrid" id="bgrid"></div>
+   </section>
+   <section class="sec glass">
+    <div class="sech"><h2>संभाव्य बूथ गट — परिसरानुसार</h2><span class="hint" id="bghint"></span></div>
+    <div class="list2" id="bglist"></div>
+   </section>
+   </div>
+  </div>
+
+  <!-- VASTI -->
+  <div id="v-vasti" class="view" hidden>
+   <section class="sec glass">
+    <div class="sech"><h2>वस्ती / भागनिहाय लाभार्थी</h2><span class="hint" id="vhint"></span></div>
+    <input class="txt" id="vq" placeholder="वस्तीचे नाव टाका — उदा. पारडी, मानेवाडा, Jaripatka" autocomplete="off">
+    <div class="list2" id="vlist"></div>
+   </section>
+  </div>
+
+  <!-- LIST -->
+  <div id="v-list" class="view" hidden>
+   <section class="sec glass">
+    <div class="lhead"><h2 id="ltitle">लाभार्थी यादी</h2>
+     <div class="row"><button class="btn wa sm" id="lq" type="button">या यादीला संपर्क सुरू करा</button><button class="btn ghost sm" id="lcsv" type="button">Excel (CSV)</button><button class="btn ghost sm" id="lvcf" type="button">फोन कॉन्टॅक्ट्स (CSV)</button><button class="btn ghost sm" id="lcopy" type="button">कॉपी</button></div></div>
+    <details class="fbox" id="fbox"><summary>फिल्टर — विधानसभा, प्रभाग, बूथ, वस्ती, योजना, वय…</summary>
+    <div class="filters" id="filters">
+     <label class="flab" for="f_q">शोध<input class="txt" id="f_q" placeholder="नाव / मोबाईल / पत्ता"></label>
+     <label class="flab" for="f_ac">विधानसभा<select class="txt" id="f_ac"></select></label>
+     <label class="flab" for="f_pr">प्रभाग<select class="txt" id="f_pr"></select></label>
+     <label class="flab" for="f_bo">बूथ<select class="txt" id="f_bo"></select></label>
+     <label class="flab" for="f_va">वस्ती<input class="txt" id="f_va" list="dl_va" placeholder="सर्व वस्ती"><datalist id="dl_va"></datalist></label>
+     <label class="flab" for="f_th">क्षेत्र<select class="txt" id="f_th"></select></label>
+     <label class="flab" for="f_sc">योजना<select class="txt" id="f_sc"></select></label>
+     <label class="flab" for="f_n">किमान योजना<select class="txt" id="f_n"><option value="0">कितीही</option><option value="2">२ किंवा जास्त</option><option value="3">३ किंवा जास्त</option><option value="4">४ किंवा जास्त</option><option value="5">५ किंवा जास्त</option></select></label>
+     <label class="flab" for="f_mob">मोबाईल<select class="txt" id="f_mob"><option value="">सर्व</option><option value="1">मोबाईल आहे</option><option value="0">मोबाईल नाही</option></select></label>
+     <label class="flab" for="f_sx">स्त्री / पुरुष<select class="txt" id="f_sx"><option value="">सर्व</option><option value="F">महिला</option><option value="M">पुरुष</option></select></label>
+     <label class="flab" for="f_age">वय<select class="txt" id="f_age"><option value="">सर्व</option><option value="18-35">१८–३५</option><option value="36-59">३६–५९</option><option value="60-200">६० व जास्त</option></select></label>
+     <label class="flab" for="f_st">संपर्क स्थिती<select class="txt" id="f_st"><option value="">सर्व</option><option value="none">अजून संपर्क नाही</option><option value="done">संपर्क झाला</option><option value="na">फोन लागला नाही</option><option value="again">पुन्हा संपर्क</option></select></label>
+     <label class="flab" for="f_sort">क्रम<select class="txt" id="f_sort"><option value="n">जास्त योजना आधी</option><option value="v">वस्तीनुसार</option><option value="a">नावानुसार</option></select></label>
+    </div></details>
+    <div class="row" style="justify-content:space-between"><span class="hint" id="lcount"></span><button class="btn ghost sm" id="freset" type="button">फिल्टर काढा</button></div>
+    <div class="vlist" id="vl"><div class="pad" id="vpad"></div></div>
+   </section>
+  </div>
+
+  <!-- OUTREACH -->
+  <div id="v-q" class="view" hidden>
+   <section class="qcard glass" id="qcard"></section>
+  </div>
+
+  <div class="note glass" id="notes"></div>
+  <footer id="foot"></footer>
+ </main>
+</div>
+
+<div class="ov" id="ov" hidden><aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dname"></aside></div>
+<div class="ov" id="setov" hidden><aside class="drawer" id="setdrawer" role="dialog" aria-modal="true" aria-labelledby="sett"></aside></div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+"use strict";
+/* ================= helpers ================= */
+const $=id=>document.getElementById(id);
+const fmt=n=>Number(n||0).toLocaleString('en-IN');
+const esc=t=>String(t??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const LS={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}},del(k){try{localStorage.removeItem(k)}catch(e){}}};
+function toast(t){const el=$('toast');el.textContent=t;el.hidden=false;clearTimeout(toast._t);toast._t=setTimeout(()=>el.hidden=true,2200)}
+async function copy(text){try{await navigator.clipboard.writeText(text);toast('कॉपी झाले');return true}catch(e){const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';document.body.append(ta);ta.select();let ok=false;try{ok=document.execCommand('copy')}catch(_){}ta.remove();toast(ok?'कॉपी झाले':'कॉपी झाले नाही — हाताने निवडा');return ok}}
+
+/* ============ transliteration for cross-script search ============ */
+const CONS={'क':'k','ख':'k','ग':'g','घ':'g','ङ':'n','च':'c','छ':'c','ज':'j','झ':'j','ञ':'n','ट':'t','ठ':'t','ड':'d','ढ':'d','ण':'n','त':'t','थ':'t','द':'d','ध':'d','न':'n','प':'p','फ':'f','ब':'b','भ':'b','म':'m','य':'y','र':'r','ल':'l','ळ':'l','व':'v','श':'s','ष':'s','स':'s','ह':'h'};
+const VOW={'अ':'a','आ':'a','इ':'i','ई':'i','उ':'u','ऊ':'u','ऋ':'r','ए':'e','ऐ':'e','ओ':'o','औ':'o','ऑ':'o','ॲ':'a'};
+const MAT={'ा':'a','ि':'i','ी':'i','ु':'u','ू':'u','ृ':'r','े':'e','ै':'e','ो':'o','ौ':'o','ॉ':'o','ॅ':'e','ं':'n','ँ':'n','ः':'','्':'','़':''};
+const DEV=/[ऀ-ॿ]/;
+function d2l(t){let o='';let pc=false;for(const ch of t.normalize('NFC')){if(CONS[ch]){o+=CONS[ch]+'a';pc=true}else if(ch in MAT){const m=MAT[ch];if(pc&&o.endsWith('a')&&ch!=='ं'&&ch!=='ँ'&&ch!=='ः'){o=o.slice(0,-1)+(ch==='्'?'':m)}else o+=m;pc=false}else if(VOW[ch]){o+=VOW[ch];pc=false}else{o+=ch;pc=false}}return o}
+const DIGM={'०':'0','१':'1','२':'2','३':'3','४':'4','५':'5','६':'6','७':'7','८':'8','९':'9'};
+function lat(t){t=String(t||'').replace(/[०-९]/g,c=>DIGM[c]);if(DEV.test(t))t=d2l(t);return t.toLowerCase()}
+function skel(tok){let t=tok.replace(/[^a-z]/g,'');if(!t)return'';if(t.endsWith('ey'))t=t.slice(0,-2)+'e';
+ for(const[a,b]of[['sh','s'],['ch','c'],['kh','k'],['gh','g'],['th','t'],['dh','d'],['ph','f'],['bh','b'],['jh','j'],['w','v'],['z','j'],['q','k'],['x','ks'],['ck','k']])t=t.split(a).join(b);
+ const f=t[0];let k=('aeiou'.includes(f)?f:'')+f.replace(/[aeiou]/g,'')+t.slice(1).replace(/[aeiou]/g,'');return k.replace(/(.)\1+/g,'$1')}
+function skels(s){return lat(s).split(/[^a-z]+/).filter(x=>x.length>1).map(skel).filter(Boolean)}
+/* search keys: lite (vowel-kept) for prefix match, sv (skeleton+first vowel) for whole-token match */
+function lite(tok,deva){let t=tok.replace(/[^a-z]/g,'');if(deva&&t.length>3&&t.endsWith('a'))t=t.slice(0,-1);if(t.endsWith('ey'))t=t.slice(0,-2)+'e';
+ for(const[a,b]of[['sh','s'],['ch','c'],['kh','k'],['gh','g'],['th','t'],['dh','d'],['ph','f'],['bh','b'],['jh','j'],['w','v'],['z','j'],['q','k'],['x','ks'],['ee','i'],['oo','u'],['aa','a'],['ii','i'],['uu','u']])t=t.split(a).join(b);return t.replace(/(.)\1+/g,'$1')}
+function sv(t){const v=(t.match(/[aeiou]/)||[''])[0];return skel(t)+':'+v}
+function keys(s){const deva=DEV.test(s);const L=lat(s).split(/[^a-z]+/).filter(x=>x.length>1).map(x=>lite(x,deva)).filter(Boolean);return{l:L,s:L.map(sv)}}
+
+/* ================= state ================= */
+let META=null, R=[], SRCH=null, SCOPE=null;   // R: records
+let F={ac:0};          // global AC filter (0 = all)
+let LISTF={};          // list view filters
+let CUR=[];            // current list (indices)
+let QUEUE=[],QI=0;     // outreach
+const ST=LS.get('nls_status',{});      // pid -> {s,t}
+let ME=LS.get('nls_me',{name:'',mob:'',tpl:'',tplv:''});
+// record field indices
+const I={name:0,alt:1,mob:2,mob2:3,aad4:4,epic:5,age:6,sex:7,addr:8,vasti:9,pr:10,booth:11,sids:12,nrec:13,ac:14,pid:15,ny:16,prs:17,bg:18};
+const bgText=r=>r[I.bg]?r[I.bg][1].map(([a,b])=>a===b?a:a+'–'+b).join(', '):'';
+const inBg=(r,b)=>!!(r[I.bg]&&r[I.bg][1].some(([x,y])=>b>=x&&b<=y));
+
+/* ================= crypto & load ================= */
+const b64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+async function kek(pass,salt,iter){const base=await crypto.subtle.importKey('raw',new TextEncoder().encode(pass),'PBKDF2',false,['deriveKey']);
+ return crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(salt),iterations:iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt'])}
+async function unwrap(k,w){const raw=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(w.iv)},k,b64(w.ct));return crypto.subtle.importKey('raw',raw,'AES-GCM',false,['decrypt'])}
+const PACKS={};
+async function pack(fn){if(!PACKS[fn])PACKS[fn]=fetch('data/'+fn).then(r=>{if(!r.ok)throw new Error('fetch');return r.text()}).then(t=>b64(t.trim()).buffer);return PACKS[fn]}
+async function openChunk(c,key){const buf=await pack(c.file);const part=buf.slice(c.off,c.off+c.len);
+ const plain=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(c.iv)},key,part);
+ const txt=await new Response(new Blob([plain]).stream().pipeThrough(new DecompressionStream('gzip'))).text();return JSON.parse(txt)}
+function setProg(p,msg){$('prog').hidden=false;$('prog').firstElementChild.style.width=(p*100).toFixed(0)+'%';$('lockmsg').textContent=msg||''}
+async function unlock(code){
+ code=code.trim();$('lockerr').textContent='';
+ if(!code){$('lockerr').textContent='कोड टाका.';return}
+ $('openbtn').disabled=true;setProg(.05,'तपासत आहे…');
+ try{
+  if(!META){const r=await fetch('data/index.json');if(!r.ok)throw new Error('fetch');META=await r.json()}
+  let jobs=[];const m=code.toUpperCase().replace(/\s+/g,'').match(/^([A-Z]{1,2}\d{2,6})-([A-Z0-9]{6,})$/);
+  if(m){const g=META.groups[m[1]];if(!g)throw new Error('code');
+   const k=await kek(m[2],g.salt,META.kdf.code);
+   for(const c of META.chunks){if(c.gw[m[1]])jobs.push([c,await unwrap(k,c.gw[m[1]])])}
+   SCOPE={type:'group',gid:m[1],label:g.label}}
+  else{const k=await kek(code,META.admin.salt,META.kdf.admin);const mk=await unwrap(k,META.admin);
+   for(const c of META.chunks)jobs.push([c,await unwrap(mk,c.aw)]);SCOPE={type:'admin',label:'सर्व ६ विधानसभा · प्रशासक'}}
+  R=[];let done=0;const metas=[];setProg(.1,'डेटा उघडत आहे…');
+  const q=jobs.slice();async function worker(){while(q.length){const[c,k]=q.shift();const d=await openChunk(c,k);metas.push(d.meta);for(const r of d.rows)R.push(r);done++;if(done%8===0||done===jobs.length)setProg(.1+.85*done/jobs.length,`डेटा उघडत आहे… ${Math.round(done/jobs.length*100)}%`)}}
+  await Promise.all([worker(),worker(),worker(),worker()]);
+  SCOPE.metas=metas;
+  if($('remember').checked)LS.set('nls_code',code);else LS.del('nls_code');
+  setProg(1,'तयार');boot();
+ }catch(e){console.log('[nls] unlock',e&&e.message);$('lockerr').textContent=e&&e.message==='fetch'?'डेटा फाईल उघडली नाही. इंटरनेट तपासून पुन्हा प्रयत्न करा.':'कोड चुकीचा आहे. पुन्हा तपासून टाका.';$('prog').hidden=true;$('lockmsg').textContent=''}
+ finally{$('openbtn').disabled=false}
+}
+$('lockform').onsubmit=e=>{e.preventDefault();unlock($('code').value)};
+(function(){const c=LS.get('nls_code','');if(c){$('code').value=c;$('remember').checked=true}})();
+
+/* ================= boot ================= */
+let TH,SC,ACS,PAL;
+function boot(){
+ TH=META.themes;SC=META.schemes;ACS=META.acs;
+ // derived per record: count of Y schemes
+ for(const r of R){let y=0;for(const s of r[I.sids]){const g=SC[s][2];if(g==='Y')y++}r[I.ny]=y}
+ R.sort((a,b)=>a[I.ac]-b[I.ac]||String(a[I.vasti]).localeCompare(String(b[I.vasti]))||String(a[I.name]).localeCompare(String(b[I.name])));
+ SRCH=null;
+ $('lock').hidden=true;$('app').hidden=false;
+ $('scope').textContent=SCOPE.label+` · ${fmt(R.length)} लोक`;
+ buildTabs();buildAcBar();setupFilters();renderAll();
+ if(!ME.name)setTimeout(openSettings,600);
+}
+function inScope(r){return !F.ac||r[I.ac]===F.ac}
+function scoped(){return F.ac?R.filter(inScope):R}
+const isBenef=r=>r[I.sids].some(s=>SC[s][2]!=='X');
+
+/* ================= tabs & AC bar ================= */
+const VIEWS=[['home','सारांश'],['sch','योजना'],['pb','प्रभाग व बूथ'],['vasti','वस्ती'],['list','लाभार्थी यादी'],['q','संपर्क मोहीम']];
+let VIEW='home';
+function buildTabs(){$('tabs').innerHTML='';for(const[id,l]of VIEWS){const b=document.createElement('button');b.type='button';b.className='tab'+(id===VIEW?' on':'');b.textContent=l;b.onclick=()=>show(id);$('tabs').append(b)}}
+function show(id){VIEW=id;document.querySelectorAll('.view').forEach(v=>v.hidden=v.id!=='v-'+id);buildTabs();
+ if(id==='list')renderList();if(id==='q')renderQ();if(id==='vasti')renderVasti();if(id==='pb')renderPB();if(id==='sch')renderSch();
+ window.scrollTo({top:0,behavior:'smooth'})}
+function buildAcBar(){const present=[...new Set(R.map(r=>r[I.ac]))].sort();$('acbar').innerHTML='';
+ if(present.length<2){$('acbar').hidden=true;return}
+ const mk=(ac,l,k)=>{const b=document.createElement('button');b.type='button';b.className='acchip'+(F.ac===ac?' on':'');b.style.setProperty('--k',k);b.textContent=l;b.onclick=()=>{F.ac=ac;buildAcBar();renderAll()};$('acbar').append(b)};
+ mk(0,'सर्व विधानसभा','#ffc94a');for(const ac of present)mk(ac,ACS[ac].n,ACS[ac].k)}
+
+/* ================= overview ================= */
+function themeOf(sid){return SC[sid][1]}
+function renderAll(){renderHome();if(VIEW==='sch')renderSch();if(VIEW==='pb')renderPB();if(VIEW==='vasti')renderVasti();if(VIEW==='list'){LISTF.ac=F.ac;syncFilterUI();renderList()}if(VIEW==='q')renderQ()}
+function countUp(el,to){if(matchMedia('(prefers-reduced-motion:reduce)').matches){el.textContent=fmt(to);return}const t0=performance.now();(function f(t){const p=Math.min((t-t0)/1300,1);el.textContent=fmt(Math.round(to*(1-Math.pow(1-p,3))));if(p<1)requestAnimationFrame(f)})(t0)}
+function renderHome(){
+ const L=scoped().filter(isBenef);
+ let sev=0,y=0,v=0,multi=0,mob=0,booth=0;const schset=new Set();
+ for(const r of L){for(const s of r[I.sids]){if(SC[s][2]!=='X'){sev++;schset.add(s)}}if(r[I.ny]>0)y++;if(r[I.sids].some(s=>SC[s][2]==='V'))v++;if(r[I.ny]>=2)multi++;if(r[I.mob])mob++;if(r[I.booth])booth++}
+ countUp($('hnum'),L.length);countUp($('hsev'),sev);$('hsch').textContent=fmt(schset.size);
+ $('hsub').textContent=F.ac?ACS[F.ac].n+' विधानसभा':(SCOPE.type==='admin'?'नागपूर शहरातील ६ विधानसभा':SCOPE.label);
+ const K=[[y,'सरकारी योजनांचा लाभ घेतलेले','#2ee59d',()=>openList({grp:'Y'},'सरकारी योजनांचे लाभार्थी')],
+  [v,'मतदार सेवा घेतलेले (SIR, फॉर्म ६/८/१८)','#38c6f4',()=>openList({grp:'V'},'मतदार सेवा घेतलेले')],
+  [multi,'एकापेक्षा जास्त योजनांचा लाभ','#ff5c9a',()=>openList({n:2},'एकापेक्षा जास्त योजना घेतलेले')],
+  [mob,'मोबाईल नंबर असलेले — थेट संपर्क शक्य','#ffc94a',()=>openList({mob:'1'},'मोबाईल असलेले लाभार्थी')]];
+ $('kpis').innerHTML='';for(const k of K){const b=document.createElement('button');b.type='button';b.className='kpi';b.style.setProperty('--k',k[2]);b.innerHTML=`<div class="v tn">${fmt(k[0])}</div><div class="t">${k[1]}</div>`;b.onclick=k[3];$('kpis').append(b)}
+ // AC cards
+ const byAc={};for(const r of R.filter(isBenef)){const a=r[I.ac];byAc[a]=byAc[a]||{n:0,y:0,m:0,b:0};byAc[a].n++;if(r[I.ny])byAc[a].y++;if(r[I.mob])byAc[a].m++;if(r[I.booth])byAc[a].b++}
+ const acs=Object.keys(byAc).map(Number).sort();$('acsec').hidden=acs.length<2;$('acgrid').innerHTML='';
+ for(const a of acs){const d=byAc[a],A=ACS[a];const b=document.createElement('button');b.type='button';b.className='accard';b.style.setProperty('--k',A.k);
+  b.innerHTML=`<div class="no">विधानसभा क्र. ${a}</div><div class="nm">${esc(A.n)}</div><div class="n tn">${fmt(d.n)}</div><div class="s">लोक · ${fmt(d.y)} सरकारी योजनांचे लाभार्थी · ${fmt(d.m)} मोबाईल</div><div class="mini"><i style="width:${d.y/d.n*100}%;background:${A.k}"></i><i style="width:${(d.n-d.y)/d.n*100}%;background:rgba(255,255,255,.25)"></i></div>`;
+  b.onclick=()=>{F.ac=F.ac===a?0:a;buildAcBar();renderAll()};$('acgrid').append(b)}
+ // themes + schemes
+ const sc={};for(const r of L)for(const s of r[I.sids])if(SC[s][2]!=='X')sc[s]=(sc[s]||0)+1;
+ const tsum={};for(const s in sc){const t=themeOf(s);tsum[t]=(tsum[t]||0)+sc[s]}
+ const tids=Object.keys(TH).filter(t=>tsum[t]);const TOT=tids.reduce((a,t)=>a+tsum[t],0)||1;
+ const R0=90,C=2*Math.PI*R0;let off=0,h='';
+ for(const t of tids){const len=tsum[t]/TOT*C;h+=`<circle class="seg" tabindex="0" data-t="${t}" cx="120" cy="120" r="${R0}" stroke="${TH[t].k}" stroke-width="30" stroke-dasharray="${Math.max(len-1.5,.5)} ${C}" stroke-dashoffset="${-off}" transform="rotate(-90 120 120)"><title>${esc(TH[t].n)}: ${fmt(tsum[t])}</title></circle>`;off+=len}
+ h+=`<text x="120" y="114" text-anchor="middle" fill="#fff" style="font:800 28px var(--disp)">${fmt(TOT)}</text><text x="120" y="138" text-anchor="middle" fill="#9ea8d2" style="font:500 13.5px var(--body)">एकूण सेवा-लाभ</text>`;
+ $('donut').innerHTML=h;$('donut').querySelectorAll('.seg').forEach(c=>{const go=()=>openList({th:c.dataset.t},TH[c.dataset.t].n);c.onclick=go;c.onkeydown=e=>{if(e.key==='Enter')go()}});
+ $('legend').innerHTML='';for(const t of tids){const b=document.createElement('button');b.type='button';b.className='chip';b.style.setProperty('--k',TH[t].k);b.innerHTML=`<i></i><span>${esc(TH[t].n)}</span><b class="tn">${fmt(tsum[t])} · ${(tsum[t]/TOT*100).toFixed(1)}%</b>`;b.onclick=()=>openList({th:t},TH[t].n);$('legend').append(b)}
+ const ss=Object.keys(sc).sort((a,b)=>sc[b]-sc[a]);const mx=Math.sqrt(sc[ss[0]]||1);$('bars').innerHTML='';
+ ss.forEach((s,i)=>{const b=document.createElement('button');b.type='button';b.className='bar';b.style.setProperty('--k',TH[themeOf(s)].k);
+  b.innerHTML=`<span class="lbl" title="${esc(SC[s][0])}">${esc(SC[s][0])}</span><span class="track"><b style="width:${Math.max(Math.sqrt(sc[s])/mx*100,1.5)}%;animation-delay:${i*20}ms"></b></span><em class="tn">${fmt(sc[s])}</em>`;
+  b.onclick=()=>openList({sc:s},SC[s][0]);$('bars').append(b)});
+ // distribution of Y-scheme count
+ const dc=[0,0,0,0,0];for(const r of L){const n=r[I.ny];if(n>=1)dc[Math.min(n,5)-1]++}
+ const dm=Math.max(...dc,1);const labs=['१ योजना','२ योजना','३ योजना','४ योजना','५+ योजना'];const cols=['#38c6f4','#2ee59d','#ffc94a','#ff9933','#ff5c9a'];
+ $('dist').innerHTML='';dc.forEach((n,i)=>{const b=document.createElement('button');b.type='button';b.className='dcol';b.style.setProperty('--k',cols[i]);
+  b.innerHTML=`<b class="tn">${fmt(n)}</b><div class="col" style="height:${Math.max(n/dm*150,6)}px"></div><span>${labs[i]}</span>`;b.onclick=()=>openList(i===4?{n:5}:{n:i+1,nmax:i+1},labs[i]+' घेतलेले लोक');$('dist').append(b)});
+ // top list
+ const top=L.filter(r=>r[I.ny]>=2).sort((a,b)=>b[I.ny]-a[I.ny]||b[I.nrec]-a[I.nrec]).slice(0,8);$('toplist').innerHTML='';
+ for(const r of top){const b=document.createElement('button');b.type='button';b.className='vrow';b.innerHTML=`<div style="min-width:0"><div class="a">${esc(r[I.name])}</div><div class="b">${esc(r[I.vasti]||r[I.addr]||'')} · ${esc(ACS[r[I.ac]].n)}</div></div><span class="b">${r[I.sids].filter(s=>SC[s][2]==='Y').map(s=>SC[s][0]).slice(0,2).map(esc).join(', ')}</span><span class="c tn">${r[I.ny]}</span>`;b.onclick=()=>openPerson(r);$('toplist').append(b)}
+ $('topall').onclick=()=>openList({n:2},'एकापेक्षा जास्त योजना घेतलेले');
+ renderNotes();
+}
+function renderNotes(){
+ $('notes').innerHTML=`<b>हे लक्षात ठेवा:</b> एक माणूस एकदाच मोजला आहे — एकाच माणसाने ४ सेवा घेतल्या तर लोक १, सेवा-लाभ ४. ही यादी सांगते की त्या माणसाने आपल्या कार्यालयातून अर्ज केला किंवा मदत घेतली; प्रत्यक्ष लाभ मिळाला का हे फोनवर विचारून नक्की करा. आधार नंबरचे फक्त शेवटचे ४ अंक दाखवले आहेत; आरोग्य तपासणीतील आजार व कायदेशीर प्रकरणांचा तपशील दाखवलेला नाही.<br><b>प्रभाग:</b> नागपूर महानगरपालिकेचे ३८ प्रभाग (निवडणूक जानेवारी २०२६). काही लोकांचा प्रभाग मूळ यादीत होता; बाकींचा त्यांच्या वस्तीच्या नावावरून ठरवला आहे (“वस्तीवरून अंदाज”). <b>बूथ:</b> विधानसभेचे मतदान केंद्र / भाग क्रमांक (६ विधानसभेत एकूण २,१५८ केंद्रे, नोव्हेंबर २०२४). “बूथ” म्हणजे मूळ यादीत असलेला नक्की भाग क्रमांक; “संभाव्य बूथ” म्हणजे पत्त्यातील परिसर ज्या भाग-क्रमांकांत येतो ते — त्यापैकी एक बूथ असण्याची शक्यता. मतदार यादी जोडल्यावर सर्वांचा नक्की बूथ दिसेल. <b>विधानसभा:</b> पत्त्यातील परिसर विधानसभेच्या भाग-यादीत सापडला तर ती विधानसभा, नाहीतर ज्या कार्यालयाच्या यादीत नाव आले ती. संपर्काची नोंद (संपर्क झाला / फोन लागला नाही) फक्त याच फोनवर राहते.`;
+ $('foot').textContent='तयार दिनांक: '+META.built+' · तयार करणारे: CA श्रीकांत जे. दुबे';
+}
+
+/* ================= schemes view ================= */
+let THSEL='all';
+function renderSch(){
+ const L=scoped();const sc={},acs={};for(const r of L)for(const s of r[I.sids]){sc[s]=(sc[s]||0)+1;(acs[s]=acs[s]||{})[r[I.ac]]=(acs[s][r[I.ac]]||0)+1}
+ $('thtabs').innerHTML='';const tl=[['all','सर्व']].concat(Object.keys(TH).map(t=>[t,TH[t].n]));
+ for(const[t,l]of tl){const b=document.createElement('button');b.type='button';b.className='chip'+(t===THSEL?' on':'');b.style.setProperty('--k',t==='all'?'#fff':TH[t].k);b.innerHTML=(t==='all'?'':'<i></i>')+`<span>${esc(l)}</span>`;b.onclick=()=>{THSEL=t;renderSch()};$('thtabs').append(b)}
+ const ss=Object.keys(sc).filter(s=>THSEL==='all'||themeOf(s)===THSEL).sort((a,b)=>sc[b]-sc[a]);
+ $('schhint').textContent=`${ss.length} योजना/सेवा · कार्डवर क्लिक करा — पूर्ण यादी उघडेल`;$('schgrid').innerHTML='';
+ for(const s of ss){const k=TH[themeOf(s)].k;const b=document.createElement('button');b.type='button';b.className='card';b.style.setProperty('--k',k);
+  const tot=sc[s];const seg=Object.keys(acs[s]).sort().map(a=>`<i style="width:${acs[s][a]/tot*100}%;background:${ACS[a].k}" title="${esc(ACS[a].n)}: ${fmt(acs[s][a])}"></i>`).join('');
+  const g=SC[s][2];const gl=g==='Y'?'सरकारी योजना':g==='V'?'मतदार सेवा':g==='X'?'यादी तपासणी':'कार्यालयीन सेवा';
+  b.innerHTML=`<div class="nm">${esc(SC[s][0])}</div><div><div class="ct tn">${fmt(tot)}</div><div class="mini" style="margin:8px 0">${seg}</div><div class="ft"><span class="tag">${gl}</span><span>पूर्ण यादी →</span></div></div>`;
+  b.onclick=()=>openList({sc:s},SC[s][0]);$('schgrid').append(b)}
+}
+
+/* ================= prabhag & booth ================= */
+function renderPB(){
+ const L=scoped().filter(isBenef);const pc={};let unk=0;for(const r of L){const p=r[I.pr];if(p)pc[p]=(pc[p]||0)+1;else unk++}
+ const ps=Object.keys(pc).map(Number).sort((a,b)=>a-b);const mx=Math.max(1,...Object.values(pc));
+ $('phint').textContent=ps.length?`${ps.length} प्रभाग · प्रभाग मूळ यादीतून किंवा त्याच वस्तीच्या इतर नोंदींवरून घेतला आहे · ${fmt(unk)} लोकांचा प्रभाग अजून ठरलेला नाही (वस्तीनुसार पहा)`:'या क्षेत्राच्या मूळ यादीत प्रभाग लिहिलेला नाही — “वस्ती” विभाग वापरा';
+ $('pgrid').innerHTML='';
+ for(const p of ps){const b=document.createElement('button');b.type='button';b.className='ptile';b.style.setProperty('--a',(.12+.55*pc[p]/mx).toFixed(2));b.innerHTML=`<b>प्रभाग ${p}</b><span class="tn">${fmt(pc[p])} लोक</span>`;b.onclick=()=>pDetail(p);$('pgrid').append(b)}
+ if(unk){const b=document.createElement('button');b.type='button';b.className='ptile unk';b.innerHTML=`<b style="font-size:15px">प्रभाग ठरलेला नाही</b><span class="tn">${fmt(unk)} लोक</span>`;b.onclick=()=>pDetail(-1);$('pgrid').append(b)}
+ const bc={};for(const r of L){if(r[I.booth]){const k=r[I.ac]+'-'+r[I.booth];bc[k]=(bc[k]||0)+1}}
+ const bs=Object.keys(bc).sort((a,b)=>{const[x1,y1]=a.split('-').map(Number),[x2,y2]=b.split('-').map(Number);return x1-x2||y1-y2});
+ $('bhint').textContent=bs.length?`${bs.length} बूथ · ${fmt(Object.values(bc).reduce((a,b)=>a+b,0))} लोकांचा नक्की भाग क्रमांक मूळ यादीत आहे. बाकी लोकांचा नक्की बूथ मतदार यादी जोडल्यावर दिसेल.`:'या क्षेत्रासाठी बूथ (भाग क्र.) अजून जोडलेला नाही — मतदार यादी मिळाल्यावर प्रत्येक माणसाचा बूथ दिसेल.';
+ const gc={};for(const r of L){if(!r[I.booth]&&r[I.bg]){const k=r[I.ac]+'|'+r[I.bg][0];(gc[k]=gc[k]||{ac:r[I.ac],n:r[I.bg][0],t:bgText(r),c:0,m:0}).c++;if(r[I.mob])gc[k].m++}}
+ const gs=Object.values(gc).sort((a,b)=>a.ac-b.ac||b.c-a.c);$('bghint').textContent=`${fmt(gs.reduce((a,g)=>a+g.c,0))} लोकांचा परिसर विधानसभेच्या भाग-यादीतील परिसराशी जुळला — त्यांचा बूथ यापैकीच एक असण्याची शक्यता आहे`;
+ $('bglist').innerHTML='';for(const g of gs){const b=document.createElement('button');b.type='button';b.className='vrow';b.innerHTML=`<div style="min-width:0"><div class="a">${esc(g.n)} · ${esc(ACS[g.ac].n)}</div><div class="b">संभाव्य बूथ: ${esc(g.t)} · ${fmt(g.m)} मोबाईल</div></div><span></span><span class="c tn">${fmt(g.c)}</span>`;b.onclick=()=>openList({ac:g.ac,bgn:g.n},`${g.n} परिसर · संभाव्य बूथ ${g.t}`);$('bglist').append(b)}
+ const bm=Math.max(1,...Object.values(bc));$('bgrid').innerHTML='';
+ for(const k of bs){const[a,bn]=k.split('-').map(Number);const b=document.createElement('button');b.type='button';b.className='ptile';b.style.setProperty('--a',(.1+.55*bc[k]/bm).toFixed(2));b.innerHTML=`<b>बूथ ${bn}</b><span class="tn">${fmt(bc[k])} · ${esc(ACS[a].s)}</span>`;b.onclick=()=>openList({ac:a,bo:bn},`${ACS[a].n} · बूथ ${bn}`);$('bgrid').append(b)}
+}
+function pDetail(p){const L=scoped().filter(r=>(p===-1?!r[I.pr]:r[I.pr]===p)&&isBenef(r));const PN=p===-1?'प्रभाग ठरलेला नाही':'प्रभाग '+p;$('pdetail').hidden=false;
+ $('pdt').textContent=p===-1?`प्रभाग ठरलेला नाही · ${fmt(L.length)} लोक (पत्ता नसलेले ${fmt(L.filter(r=>!r[I.vasti]).length)}, त्यापैकी बूथ माहीत ${fmt(L.filter(r=>!r[I.vasti]&&r[I.booth]).length)})`:`प्रभाग ${p} · ${fmt(L.length)} लोक`;
+ const vc={};for(const r of L){const v=r[I.vasti]||'(वस्ती नमूद नाही)';vc[v]=(vc[v]||0)+1}
+ const vs=Object.keys(vc).sort((a,b)=>vc[b]-vc[a]).slice(0,40);$('pdv').innerHTML='';
+ for(const v of vs){const b=document.createElement('button');b.type='button';b.className='vrow';b.innerHTML=`<span class="a">${esc(v)}</span><span></span><span class="c tn">${fmt(vc[v])}</span>`;b.onclick=()=>openList({pr:p,va:v==='(वस्ती नमूद नाही)'?'':v},`${PN} · ${v}`);$('pdv').append(b)}
+ const sc={};for(const r of L)for(const s of r[I.sids])if(SC[s][2]!=='X')sc[s]=(sc[s]||0)+1;const ss=Object.keys(sc).sort((a,b)=>sc[b]-sc[a]);const mx=Math.sqrt(sc[ss[0]]||1);$('pds').innerHTML='';
+ for(const s of ss){const b=document.createElement('button');b.type='button';b.className='bar';b.style.setProperty('--k',TH[themeOf(s)].k);b.innerHTML=`<span class="lbl">${esc(SC[s][0])}</span><span class="track"><b style="width:${Math.max(Math.sqrt(sc[s])/mx*100,2)}%"></b></span><em class="tn">${fmt(sc[s])}</em>`;b.onclick=()=>openList({pr:p,sc:s},`${PN} · ${SC[s][0]}`);$('pds').append(b)}
+ $('pdlist').onclick=()=>openList({pr:p},PN);$('pdq').onclick=()=>{openList({pr:p,mob:'1'},PN,true)};
+ $('pdetail').scrollIntoView({behavior:'smooth',block:'start'})}
+
+/* ================= vasti view ================= */
+function renderVasti(){
+ const L=scoped().filter(isBenef);const vc={};for(const r of L){const v=r[I.vasti];if(!v)continue;const k=r[I.ac]+'|'+v;(vc[k]=vc[k]||{n:0,y:0,m:0,ac:r[I.ac],v}).n++;if(r[I.ny])vc[k].y++;if(r[I.mob])vc[k].m++}
+ const q=$('vq').value.trim();const ql=lat(q);const qk=keys(q).l;
+ let vs=Object.values(vc);if(q)vs=vs.filter(x=>{if(lat(x.v).includes(ql))return true;const xk=keys(x.v).l;return qk.length&&qk.every(t=>xk.some(y=>y.startsWith(t)))});
+ vs.sort((a,b)=>b.n-a.n);$('vhint').textContent=`${fmt(Object.keys(vc).length)} वस्ती / भाग · मोठ्या वस्त्या आधी`;
+ $('vlist').innerHTML='';for(const x of vs.slice(0,150)){const b=document.createElement('button');b.type='button';b.className='vrow';
+  b.innerHTML=`<div style="min-width:0"><div class="a">${esc(x.v)}</div><div class="b">${esc(ACS[x.ac].n)} · ${fmt(x.y)} सरकारी योजना · ${fmt(x.m)} मोबाईल</div></div><span></span><span class="c tn">${fmt(x.n)}</span>`;
+  b.onclick=()=>openList({ac:x.ac,va:x.v},`${x.v} · ${ACS[x.ac].n}`);$('vlist').append(b)}
+ if(!vs.length)$('vlist').innerHTML='<div class="empty">ही वस्ती सापडली नाही. नावाचा दुसरा भाग टाकून पहा.</div>';
+}
+$('vq').oninput=()=>renderVasti();
+
+/* ================= list view ================= */
+function opt(sel,arr,cur){sel.innerHTML=arr.map(([v,l])=>`<option value="${esc(v)}"${String(v)===String(cur??'')?' selected':''}>${esc(l)}</option>`).join('')}
+function setupFilters(){
+ try{if(matchMedia('(min-width:761px)').matches)$('fbox').open=true}catch(e){}
+ ['f_q','f_va'].forEach(id=>$(id).oninput=debounce(readFilters,250));
+ ['f_ac','f_pr','f_bo','f_th','f_sc','f_n','f_mob','f_sx','f_age','f_st','f_sort'].forEach(id=>$(id).onchange=readFilters);
+ $('freset').onclick=()=>{LISTF={ac:F.ac};syncFilterUI();renderList()};
+ $('lq').onclick=()=>startQueue(CUR,$('ltitle').textContent);
+ $('lcsv').onclick=()=>exportCSV(false);$('lvcf').onclick=()=>exportCSV(true);$('lcopy').onclick=()=>copyList();
+}
+function debounce(f,ms){let t;return(...a)=>{clearTimeout(t);t=setTimeout(()=>f(...a),ms)}}
+function syncFilterUI(){
+ const f=LISTF;const L=R;
+ const acs=[...new Set(L.map(r=>r[I.ac]))].sort();opt($('f_ac'),[[0,'सर्व']].concat(acs.map(a=>[a,ACS[a].n])),f.ac||0);
+ const base=f.ac?L.filter(r=>r[I.ac]===+f.ac):L;
+ const prs=[...new Set(base.map(r=>r[I.pr]).filter(Boolean))].sort((a,b)=>a-b);opt($('f_pr'),[['','सर्व']].concat(prs.map(p=>[p,'प्रभाग '+p]),[[-1,'प्रभाग ठरलेला नाही']]),f.pr||'');
+ const bset=new Set();for(const r of base){if(r[I.booth])bset.add(r[I.booth]);else if(r[I.bg])for(const[x,y]of r[I.bg][1])for(let b=x;b<=y;b++)bset.add(b)}const bos=[...bset].sort((a,b)=>a-b);opt($('f_bo'),[['',f.ac?'सर्व':'सर्व (आधी विधानसभा निवडा)']].concat(bos.map(p=>[p,'बूथ '+p])),f.bo||'');
+ opt($('f_th'),[['','सर्व']].concat(Object.keys(TH).map(t=>[t,TH[t].n])),f.th||'');
+ const scs=Object.keys(SC).filter(s=>!f.th||themeOf(s)===f.th).sort((a,b)=>SC[a][0].localeCompare(SC[b][0]));opt($('f_sc'),[['','सर्व']].concat(scs.map(s=>[s,SC[s][0]])),f.sc||'');
+ $('f_q').value=f.q||'';$('f_va').value=f.va||'';$('f_n').value=f.n||0;$('f_mob').value=f.mob||'';$('f_sx').value=f.sx||'';$('f_age').value=f.age||'';$('f_st').value=f.st||'';$('f_sort').value=f.sort||'n';
+ const vas=[...new Set(base.map(r=>r[I.vasti]).filter(Boolean))].slice(0,3000);$('dl_va').innerHTML=vas.map(v=>`<option value="${esc(v)}">`).join('');
+}
+function readFilters(){const g=id=>$(id).value;LISTF={q:g('f_q'),ac:+g('f_ac')||0,pr:+g('f_pr')||0,bo:+g('f_bo')||0,va:g('f_va'),th:g('f_th'),sc:g('f_sc'),n:+g('f_n')||0,mob:g('f_mob'),sx:g('f_sx'),age:g('f_age'),st:g('f_st'),sort:g('f_sort'),grp:LISTF.grp,nmax:LISTF.nmax,bgn:LISTF.bgn};
+ if(LISTF.ac!==(F.ac||0)){F.ac=LISTF.ac;buildAcBar();renderHome()}
+ syncFilterUI();renderList()}
+function buildSearch(){if(SRCH)return;SRCH=new Array(R.length);for(let i=0;i<R.length;i++){const r=R[i];
+ const a=keys(r[I.name]),b=keys(r[I.alt]||''),c=keys((r[I.vasti]||'')+' '+r[I.addr]);
+ SRCH[i]=(r[I.name]+' '+(r[I.alt]||'')+' '+r[I.addr]+' '+(r[I.vasti]||'')).toLowerCase()+' | '+r[I.mob]+' '+r[I.mob2]+' '+String(r[I.epic]).toLowerCase()+' #'+r[I.aad4]+' | '+
+  ' '+a.l.concat(b.l,c.l).join(' ')+' | '+a.s.concat(b.s,c.s).join(' ')+' '}}
+function matchQ(i,q){if(!q)return true;const s=SRCH[i];
+ for(const part of q){if(s.includes(part.raw))continue;if(part.l&&s.includes(' '+part.l))continue;if(part.s&&s.includes(' '+part.s+' '))continue;return false}return true}
+function prepQ(q){q=String(q||'').trim().toLowerCase();if(!q)return null;
+ return q.split(/\s+/).filter(Boolean).map(w=>{const d=w.replace(/[^0-9]/g,'');if(/^\d{4}$/.test(w))return{raw:'#'+w};if(d.length>=5&&d.length===w.length)return{raw:w};
+  const k=keys(w);if(!k.l.length||k.l[0].length<3)return{raw:w};return{raw:w,l:k.l[0],s:k.s[0]}})}
+function filterList(f){buildSearch();const q=prepQ(f.q);const vaL=f.va?String(f.va).toLowerCase():'';const out=[];
+ let amin=0,amax=999;if(f.age){[amin,amax]=f.age.split('-').map(Number)}
+ for(let i=0;i<R.length;i++){const r=R[i];
+  if(f.ac&&r[I.ac]!==+f.ac)continue;if(f.pr){if(+f.pr===-1){if(r[I.pr])continue}else if(r[I.pr]!==+f.pr)continue}if(f.bo){const b=+f.bo;if(r[I.booth]){if(r[I.booth]!==b)continue}else if(!inBg(r,b))continue}
+  if(f.bgn&&!(r[I.bg]&&r[I.bg][0]===f.bgn))continue;
+  if(vaL&&String(r[I.vasti]||'').toLowerCase()!==vaL&&!String(r[I.vasti]||'').toLowerCase().includes(vaL))continue;
+  const sids=r[I.sids];
+  if(!f.sc&&!f.grp&&!f.th&&!sids.some(s=>SC[s][2]!=='X'))continue;
+  if(f.sc&&!sids.includes(f.sc))continue;if(f.th&&!sids.some(s=>themeOf(s)===f.th))continue;if(f.grp&&!sids.some(s=>SC[s][2]===f.grp))continue;
+  if(f.n&&r[I.ny]<f.n)continue;if(f.nmax&&r[I.ny]>f.nmax)continue;
+  if(f.mob==='1'&&!r[I.mob])continue;if(f.mob==='0'&&r[I.mob])continue;if(f.sx&&r[I.sex]!==f.sx)continue;
+  if(f.age){const a=+r[I.age];if(!a||a<amin||a>amax)continue}
+  if(f.st){const s=ST[r[I.pid]]?.s||'none';if(s!==f.st)continue}
+  if(q&&!matchQ(i,q))continue;out.push(i)}
+ const so=f.sort||'n';if(so==='n')out.sort((a,b)=>R[b][I.ny]-R[a][I.ny]||R[b][I.sids].length-R[a][I.sids].length);else if(so==='a')out.sort((a,b)=>String(R[a][I.name]).localeCompare(String(R[b][I.name])));
+ return out}
+function openList(f,title,queue){LISTF=Object.assign({ac:F.ac},f);$('ltitle').textContent=title||'लाभार्थी यादी';show('list');syncFilterUI();renderList();if(queue)startQueue(CUR,title)}
+function renderList(){CUR=filterList(LISTF);$('lcount').textContent=`${fmt(CUR.length)} लोक सापडले`+(CUR.length?` · ${fmt(CUR.filter(i=>R[i][I.mob]).length)} मोबाईलसह`:'');
+ const vl=$('vl'),pad=$('vpad');pad.style.height=(CUR.length*76)+'px';vl.scrollTop=0;drawRows()}
+function drawRows(){const vl=$('vl'),pad=$('vpad');if(!CUR.length){pad.style.height='auto';pad.innerHTML='<div class="empty">काहीही सापडलं नाही. फिल्टर बदलून किंवा दुसरं नाव टाकून पहा.</div>';return}
+ const top=vl.scrollTop,h=vl.clientHeight||600;const s=Math.max(0,Math.floor(top/76)-6),e=Math.min(CUR.length,Math.ceil((top+h)/76)+6);let html='';
+ for(let k=s;k<e;k++){const r=R[CUR[k]];const st=ST[r[I.pid]]?.s||'';
+  const pills=r[I.sids].filter(x=>SC[x][2]!=='X').slice(0,3).map(x=>`<span class="pill" style="--k:${TH[themeOf(x)].k}">${esc(SC[x][0])}</span>`).join('');
+  html+=`<div class="prow" style="top:${k*76}px" data-i="${CUR[k]}" role="button" tabindex="0"><span class="i tn">${fmt(k+1)}</span>
+  <div class="c1" style="min-width:0"><div class="nm"><span class="st ${st}"></span>${esc(r[I.name])}</div><div class="sb">${esc(r[I.vasti]||r[I.addr]||'पत्ता नाही')}${r[I.pr]?' · प्र. '+r[I.pr]:''}${r[I.booth]?' · बूथ '+r[I.booth]:(r[I.bg]?' · संभाव्य बूथ '+bgText(r):'')}</div></div>
+  <div class="c2 sb tn" style="min-width:0">${r[I.mob]?esc(r[I.mob]):'<span style="color:var(--dim)">मोबाईल नाही</span>'}${r[I.age]?' · '+esc(r[I.age])+' वर्षे':''}</div>
+  <div class="c3 pills">${pills}</div><div class="c4"><span class="cnt tn" title="किती योजना">${r[I.ny]||r[I.sids].length}</span></div></div>`}
+ pad.innerHTML=html}
+$('vl').addEventListener('scroll',()=>requestAnimationFrame(drawRows),{passive:true});
+$('vpad').addEventListener('click',e=>{const row=e.target.closest('.prow');if(row)openPerson(R[+row.dataset.i])});
+$('vpad').addEventListener('keydown',e=>{if(e.key==='Enter'){const row=e.target.closest('.prow');if(row)openPerson(R[+row.dataset.i])}});
+$('gsform').onsubmit=e=>{e.preventDefault();const q=$('gq').value.trim();if(!q)return;openList({q},`शोध: “${q}”`)};
+
+/* ================= export ================= */
+const csvq=v=>{v=String(v??'');return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v};
+function rowsFor(contacts){if(contacts){const out=[['Name','Given Name','Phone 1 - Type','Phone 1 - Value','Notes']];
+  for(const i of CUR){const r=R[i];if(!r[I.mob])continue;out.push([r[I.name],r[I.name],'Mobile','+91'+r[I.mob],(r[I.vasti]||'')+' | '+r[I.sids].map(s=>SC[s][0]).join(', ')])}return out}
+ const out=[['क्र.','नाव','दुसरे नाव','मोबाईल','दुसरा मोबाईल','आधार (शेवटचे ४)','EPIC','वय','लिंग','पत्ता','वस्ती','प्रभाग','बूथ','संभाव्य बूथ','विधानसभा','योजना','योजना संख्या','संपर्क स्थिती']];
+ CUR.forEach((i,k)=>{const r=R[i];out.push([k+1,r[I.name],r[I.alt],r[I.mob],r[I.mob2],r[I.aad4],r[I.epic],r[I.age],r[I.sex],r[I.addr],r[I.vasti],r[I.pr]||'',r[I.booth]||'',bgText(r),ACS[r[I.ac]].n,r[I.sids].map(s=>SC[s][0]).join('; '),r[I.ny],stLabel(ST[r[I.pid]]?.s)])});return out}
+let DL=null;async function getDL(){return null}
+const FRAMED=false;
+function nativeSave(name,text){try{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:'text/csv;charset=utf-8'}));a.download=name;document.body.append(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},3000);return true}catch(e){return false}}
+async function exportCSV(contacts){if(!CUR.length){toast('यादी रिकामी आहे');return}
+ const csv='﻿'+rowsFor(contacts).map(r=>r.map(csvq).join(',')).join('\n');const name=(contacts?'contacts_':'labharthi_')+($('ltitle').textContent.replace(/[^\wऀ-ॿ]+/g,'_').slice(0,40))+'.csv';
+ const dl=await getDL();if(dl){try{await dl.save({filename:name,data:new Blob([csv])});toast('फाईल सेव्ह झाली');return}catch(e){if(e&&e.code==='declined')return}}
+ if(!FRAMED&&nativeSave(name,csv)){toast('फाईल डाउनलोड झाली');return}
+ await copy(csv.slice(1));toast('डाउनलोड इथे चालत नाही — यादी कॉपी केली; Excel/Sheets मध्ये पेस्ट करा')}
+async function copyList(){if(!CUR.length)return;const t=rowsFor(false).map(r=>r.join('\t')).join('\n');await copy(t)}
+
+/* ================= person drawer ================= */
+function stLabel(s){return s==='done'?'संपर्क झाला':s==='na'?'फोन लागला नाही':s==='again'?'पुन्हा संपर्क':''}
+function schemeText(r){const y=r[I.sids].filter(s=>SC[s][2]==='Y'||SC[s][2]==='S').map(s=>SC[s][0].replace(/ \(.*\)$/,''));return y.slice(0,3).join(', ')}
+const TPL_Y=`नमस्कार {नाव} जी 🙏
+
+आपण आमच्या कार्यालयातून {योजना} यासाठी मदत घेतली होती. आपल्याला त्याचा लाभ मिळाला का? काही अडचण असल्यास किंवा दुसऱ्या कोणत्याही सरकारी योजनेसाठी मदत हवी असल्यास मला नक्की कळवा.
+
+आपला बूथ प्रमुख
+{प्रमुख} {प्रमुख_मोबाईल}
+भारतीय जनता पार्टी, नागपूर`;
+const TPL_V=`नमस्कार {नाव} जी 🙏
+
+मतदार यादीतील आपल्या नावाच्या कामासाठी ({योजना}) आम्ही मदत केली होती. आपले नाव यादीत बरोबर आहे ना? आपल्या घरातील कोणाचे नाव राहिले असल्यास किंवा कोणत्याही सरकारी योजनेसाठी मदत हवी असल्यास मला कळवा.
+
+आपला बूथ प्रमुख
+{प्रमुख} {प्रमुख_मोबाईल}
+भारतीय जनता पार्टी, नागपूर`;
+function message(r){const y=r[I.sids].some(s=>SC[s][2]==='Y'||SC[s][2]==='S');let t=(y?(ME.tpl||TPL_Y):(ME.tplv||TPL_V));
+ const nm=String(r[I.name]).split(/\s+/).length>2&&!DEV.test(r[I.name])?String(r[I.name]).split(/\s+/)[0]+' '+String(r[I.name]).split(/\s+/).slice(-1)[0]:r[I.name];
+ const sch=y?schemeText(r):r[I.sids].map(s=>SC[s][0]).slice(0,2).join(', ');
+ return t.split('{नाव}').join(titleCase(nm)).split('{योजना}').join(sch).split('{वस्ती}').join(r[I.vasti]||'').split('{प्रमुख}').join(ME.name||'').split('{प्रमुख_मोबाईल}').join(ME.mob?('('+ME.mob+')'):'').replace(/\n{3,}/g,'\n\n').trim()}
+function titleCase(s){s=String(s);return DEV.test(s)?s:s.toLowerCase().replace(/\b[a-z]/g,c=>c.toUpperCase())}
+function waLink(r,mob){return 'https://wa.me/91'+(mob||r[I.mob])+'?text='+encodeURIComponent(message(r))}
+function setSt(r,s){const id=r[I.pid];if(ST[id]?.s===s)delete ST[id];else ST[id]={s,t:Date.now()};LS.set('nls_status',ST)}
+function openPerson(r){const d=$('drawer');const st=ST[r[I.pid]]?.s||'';
+ const sch=r[I.sids].map(s=>`<span class="pill" style="--k:${TH[themeOf(s)].k}">${esc(SC[s][0])}</span>`).join(' ');
+ d.innerHTML=`<div class="dh"><div><div class="eyebrow">${esc(ACS[r[I.ac]].n)} विधानसभा</div><h3 id="dname">${esc(r[I.name])}</h3>${r[I.alt]?`<div class="mut">${esc(r[I.alt])}</div>`:''}</div><button class="x" id="dx" type="button" aria-label="बंद करा">✕</button></div>
+ <div style="display:flex;flex-wrap:wrap;gap:6px">${sch}</div>
+ <dl class="kv"><dt>मोबाईल</dt><dd class="tn">${r[I.mob]?esc(r[I.mob]):'—'}${r[I.mob2]?' / '+esc(r[I.mob2]):''}</dd>
+ <dt>पत्ता</dt><dd>${esc(r[I.addr]||'—')}</dd><dt>वस्ती</dt><dd>${esc(r[I.vasti]||'—')}</dd>
+ <dt>प्रभाग</dt><dd>${r[I.pr]?r[I.pr]+(r[I.prs]?' <span class="mut">(वस्तीवरून अंदाज)</span>':''):'माहीत नाही'}</dd><dt>बूथ (भाग क्र.)</dt><dd>${r[I.booth]?r[I.booth]:(r[I.bg]?'संभाव्य: '+esc(bgText(r))+' <span class="mut">('+esc(r[I.bg][0])+' परिसर)</span>':'माहीत नाही')}</dd>
+ ${r[I.age]||r[I.sex]?`<dt>वय / लिंग</dt><dd>${esc(r[I.age]||'—')} ${r[I.sex]==='F'?'· महिला':r[I.sex]==='M'?'· पुरुष':''}</dd>`:''}
+ ${r[I.aad4]?`<dt>आधार</dt><dd class="tn">XXXX XXXX ${esc(r[I.aad4])}</dd>`:''}${r[I.epic]?`<dt>मतदार ओळखपत्र</dt><dd class="tn">${esc(r[I.epic])}</dd>`:''}
+ <dt>सरकारी योजना</dt><dd>${r[I.ny]} · एकूण ${r[I.nrec]} नोंदी</dd></dl>
+ ${r[I.mob]?`<div class="eyebrow" style="color:var(--grn)">तयार WhatsApp मेसेज</div><div class="msg" id="dmsg">${esc(message(r))}</div>
+ <div class="row"><a class="btn wa" href="${esc(waLink(r))}" target="_blank" rel="noopener" id="dwa">WhatsApp वर पाठवा</a><a class="btn ghost sm" href="tel:+91${esc(r[I.mob])}">फोन करा</a><button class="btn ghost sm" id="dcm" type="button">मेसेज कॉपी</button><button class="btn ghost sm" id="dcn" type="button">नंबर कॉपी</button></div>
+ <p class="mut" style="margin:0;font-size:13.5px">फोन करायचा असल्यास नंबर कॉपी करा: <b class="tn" style="user-select:all">${esc(r[I.mob])}</b></p>`:'<p class="mut">या माणसाचा मोबाईल नंबर यादीत नाही. घरी भेट देऊन संपर्क करा.</p>'}
+ <div class="eyebrow">संपर्क स्थिती (फक्त या फोनवर)</div>
+ <div class="stbtns"><button type="button" data-s="done" style="--k:#2ee59d" class="${st==='done'?'on':''}">संपर्क झाला</button><button type="button" data-s="na" style="--k:#ff6b6b" class="${st==='na'?'on':''}">फोन लागला नाही</button><button type="button" data-s="again" style="--k:#ffc94a" class="${st==='again'?'on':''}">पुन्हा संपर्क</button></div>`;
+ $('ov').hidden=false;document.body.style.overflow='hidden';
+ $('dx').onclick=closePerson;
+ if(r[I.mob]){$('dcm').onclick=()=>copy(message(r));$('dcn').onclick=()=>copy(r[I.mob]);$('dwa').addEventListener('click',()=>{if(!ST[r[I.pid]]){ST[r[I.pid]]={s:'done',t:Date.now()};LS.set('nls_status',ST)}})}
+ d.querySelectorAll('.stbtns button').forEach(b=>b.onclick=()=>{setSt(r,b.dataset.s);openPerson(r);if(VIEW==='list')drawRows()});
+ $('dx').focus()}
+function closePerson(){$('ov').hidden=true;document.body.style.overflow='';if(VIEW==='list')drawRows()}
+$('ov').onclick=e=>{if(e.target===$('ov'))closePerson()};
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(!$('ov').hidden)closePerson();if(!$('setov').hidden)closeSettings()}});
+
+/* ================= outreach queue ================= */
+function startQueue(list,title){QUEUE=list.filter(i=>R[i][I.mob]);QI=QUEUE.findIndex(i=>!ST[R[i][I.pid]]);if(QI<0)QI=0;QUEUE.title=title||'';show('q')}
+function renderQ(){const c=$('qcard');
+ if(!QUEUE.length){c.innerHTML=`<div class="eyebrow">संपर्क मोहीम</div><h2 style="font-size:26px">कोणाला संपर्क करायचा ते निवडा</h2><p class="mut" style="margin:0">“लाभार्थी यादी” मध्ये आपली वस्ती, प्रभाग किंवा योजना निवडा आणि “या यादीला संपर्क सुरू करा” दाबा. इथे एकेक माणूस समोर येईल — WhatsApp दाबा, मेसेज जाईल, मग पुढचा.</p>
+  <div class="row"><button class="btn" type="button" id="qall">मोबाईल असलेले सर्व लाभार्थी घ्या</button><button class="btn ghost" type="button" id="qlist">यादी उघडा</button></div>`;
+  $('qall').onclick=()=>{LISTF={ac:F.ac,mob:'1',st:'none'};startQueue(filterList(LISTF),'अजून संपर्क न झालेले')};$('qlist').onclick=()=>show('list');return}
+ QI=Math.max(0,Math.min(QI,QUEUE.length-1));const r=R[QUEUE[QI]];const done=QUEUE.filter(i=>ST[R[i][I.pid]]).length;
+ c.innerHTML=`<div class="row" style="justify-content:space-between"><div class="eyebrow">संपर्क मोहीम · ${esc(QUEUE.title)}</div><span class="hint tn">${fmt(QI+1)} / ${fmt(QUEUE.length)} · ${fmt(done)} झाले</span></div>
+ <div class="prog"><b style="width:${(done/QUEUE.length*100).toFixed(1)}%"></b></div>
+ <div class="qname">${esc(r[I.name])}</div>
+ <div class="qmeta">${r[I.sids].filter(s=>SC[s][2]!=='X').map(s=>`<span class="pill" style="--k:${TH[themeOf(s)].k}">${esc(SC[s][0])}</span>`).join('')}</div>
+ <div class="mut">${esc(r[I.vasti]||r[I.addr]||'')} · <b class="tn" style="color:var(--ink)">${esc(r[I.mob])}</b>${r[I.booth]?' · बूथ '+r[I.booth]:(r[I.bg]?' · संभाव्य बूथ '+bgText(r):'')}${r[I.pr]?' · प्रभाग '+r[I.pr]:''}</div>
+ <div class="msg">${esc(message(r))}</div>
+ <div class="row"><a class="btn wa" id="qwa" href="${esc(waLink(r))}" target="_blank" rel="noopener">WhatsApp वर पाठवा</a><a class="btn ghost sm" href="tel:+91${esc(r[I.mob])}">फोन करा</a><button class="btn ghost sm" type="button" id="qcm">मेसेज कॉपी</button><button class="btn ghost sm" type="button" id="qcn">नंबर कॉपी</button></div>
+ <div class="stbtns"><button type="button" data-s="done" style="--k:#2ee59d">संपर्क झाला</button><button type="button" data-s="na" style="--k:#ff6b6b">फोन लागला नाही</button><button type="button" data-s="again" style="--k:#ffc94a">पुन्हा संपर्क</button></div>
+ <div class="qnav"><button class="btn ghost" type="button" id="qp">‹ मागे</button><button class="btn ghost" type="button" id="qd">पूर्ण माहिती</button><button class="btn" type="button" id="qn">पुढचा ›</button></div>`;
+ const cur=ST[r[I.pid]]?.s;c.querySelectorAll('.stbtns button').forEach(b=>{if(b.dataset.s===cur)b.classList.add('on');b.onclick=()=>{setSt(r,b.dataset.s);QI++;renderQ()}});
+ $('qwa').addEventListener('click',()=>{ST[r[I.pid]]={s:'done',t:Date.now()};LS.set('nls_status',ST);setTimeout(()=>{QI++;renderQ()},400)});
+ $('qcm').onclick=()=>copy(message(r));$('qcn').onclick=()=>copy(r[I.mob]);
+ $('qp').onclick=()=>{QI--;renderQ()};$('qn').onclick=()=>{QI++;renderQ()};$('qd').onclick=()=>openPerson(r)}
+
+/* ================= settings ================= */
+function openSettings(){const d=$('setdrawer');
+ d.innerHTML=`<div class="dh"><div><div class="eyebrow">एकदाच भरा</div><h3 id="sett">माझी माहिती व मेसेज</h3></div><button class="x" id="sx" type="button" aria-label="बंद करा">✕</button></div>
+ <p class="mut" style="margin:0">हे नाव व नंबर प्रत्येक WhatsApp मेसेजच्या शेवटी येईल. ही माहिती फक्त या फोनवर राहते.</p>
+ <label class="flab" for="s_n">आपले नाव<input class="txt" id="s_n" value="${esc(ME.name)}" placeholder="उदा. राजेश पाटील"></label>
+ <label class="flab" for="s_m">आपला मोबाईल<input class="txt" id="s_m" inputmode="numeric" value="${esc(ME.mob)}" placeholder="10 अंकी नंबर"></label>
+ <label class="flab" for="s_t">योजना लाभार्थ्यांसाठी मेसेज<textarea class="txt" id="s_t" rows="9">${esc(ME.tpl||TPL_Y)}</textarea></label>
+ <label class="flab" for="s_v">मतदार सेवा घेतलेल्यांसाठी मेसेज<textarea class="txt" id="s_v" rows="8">${esc(ME.tplv||TPL_V)}</textarea></label>
+ <p class="mut" style="margin:0;font-size:13.5px">मेसेजमध्ये {नाव}, {योजना}, {वस्ती}, {प्रमुख}, {प्रमुख_मोबाईल} हे शब्द आपोआप बदलतात. मेसेजमध्ये मतांच्या बदल्यात कोणताही लाभ देण्याचे आश्वासन लिहू नका.</p>
+ <div class="row"><button class="btn" id="ssave" type="button">सेव्ह करा</button><button class="btn ghost sm" id="sreset" type="button">मूळ मेसेज परत आणा</button></div>`;
+ $('setov').hidden=false;document.body.style.overflow='hidden';
+ $('sx').onclick=closeSettings;
+ $('ssave').onclick=()=>{ME={name:$('s_n').value.trim(),mob:$('s_m').value.replace(/\D/g,'').slice(-10),tpl:$('s_t').value===TPL_Y?'':$('s_t').value,tplv:$('s_v').value===TPL_V?'':$('s_v').value};LS.set('nls_me',ME);closeSettings();toast('सेव्ह झाले');if(VIEW==='q')renderQ()};
+ $('sreset').onclick=()=>{$('s_t').value=TPL_Y;$('s_v').value=TPL_V}}
+function closeSettings(){$('setov').hidden=true;document.body.style.overflow=''}
+$('setov').onclick=e=>{if(e.target===$('setov'))closeSettings()};
+$('setbtn').onclick=openSettings;
+$('lockbtn').onclick=()=>{R=[];SRCH=null;$('app').hidden=true;$('lock').hidden=false;$('code').value=LS.get('nls_code','');$('prog').hidden=true;$('lockmsg').textContent=''};
+</script>
+</body></html>
